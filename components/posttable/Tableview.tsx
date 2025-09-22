@@ -8,13 +8,16 @@ import { MdOutlineTableBar } from "react-icons/md";
 import { FaSquare } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
 import MoveKOTitem from './moveKOTitem/MoveKOTitem';
+import SettleSave from './settle&save/SettleSave';
+
 
 
 const Tableview = () => {
     const [gtable, setGtable] = useState(Array.from({ length: 22 }, (_, i) => i + 1))
     const [stable, setStable] = useState(Array.from({ length: 11 }, (_, i) => i + 1))
 
-    const [showpopup, setShowpopup] = useState<boolean>(false)
+    const [showMoveKOTPopup, setShowMoveKOTPopup] = useState<boolean>(false)
+    const [showSettleSavePopup, setShowSettleSavePopup] = useState<boolean>(false)
 
 
 
@@ -77,9 +80,11 @@ const Tableview = () => {
                             
                             <button className='text-sm ml-[7px] cursor-pointer'
                                 // onClick={() => setShowpopup(true)}
-                                onClick={()=>setShowpopup(true)}
+                                onClick={()=>setShowMoveKOTPopup(true)}
                             >Move KOT/Items</button>
-                            {showpopup && <MoveKOTitem setShowpopup={setShowpopup} />}
+                            {showMoveKOTPopup && <MoveKOTitem setShowpopup={setShowMoveKOTPopup}
+                            
+                            />}
                         </li>
                         
                         <li className='flex gap-2 mt-[3px]'><FaSquare className='mt-[4px] text-[#F7EFE8]' />Blank Table</li>
@@ -103,6 +108,7 @@ const Tableview = () => {
                     <button
                         key={num}
                         className='border-1 border-[#A85916] border-dashed rounded-md text-[#A85916] bg-[#F7EFE8] p-[18px] py-[28px] grid justify-center items-center cursor-pointer'
+                        onClick={()=>setShowSettleSavePopup(true)}
                     >
                         <MdOutlineTableBar className='ml-5' />
                         Table {num}
@@ -121,14 +127,19 @@ const Tableview = () => {
 
             <div className='grid grid-cols-11 gap-4 text-black mx-4 mt-6 mb-5 ' >
                 {stable.map((num) => (
-                    <button key={num} className='border-1 border-[#A85916] border-dashed rounded-md text-[#A85916] bg-[#F7EFE8] p-[18px] py-[28px] grid justify-center items-center'> <MdOutlineTableBar className='ml-5' />Table {num}</button>
+                    <button key={num} 
+                        className='border-1 border-[#A85916] border-dashed rounded-md text-[#A85916] bg-[#F7EFE8] p-[18px] py-[28px] grid justify-center items-center cursor-pointer'
+                        onClick={()=>setShowSettleSavePopup(true)}> 
+                        <MdOutlineTableBar className='ml-5' />
+                        Table {num}</button>
                 ))}
 
             </div>
+
+            {showSettleSavePopup && <SettleSave setshowprop={setShowSettleSavePopup} />}
 
         </div>
     )
 }
 
 export default Tableview
-

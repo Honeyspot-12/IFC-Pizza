@@ -121,9 +121,7 @@ const Maincontent: React.FC = () => {
   //   allitems.find((i)=>i.name===name)
 
   const findItem=(name:string):Item|undefined=>
-    allitems.find((i)=>i.name===name)
-
-  
+    allitems.find((i)=>i.name===name)  
 
   return (
     <div className="flex-1 p-4 h-screen bg-white">

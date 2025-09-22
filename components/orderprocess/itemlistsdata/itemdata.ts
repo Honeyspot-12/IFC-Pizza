@@ -678,7 +678,7 @@ export interface Item {
 export const items: Item[] = [
     {
         name: "Coke",
-        shortCode: "CM01",
+        shortCode: "C01",
         variations: [
             { size: "250ml", price: 20 },
             { size: "500ml", price: 40 },
@@ -688,7 +688,7 @@ export const items: Item[] = [
     },
     {
         name: "Pepsi",
-        shortCode: "CM02",
+        shortCode: "P02",
         variations: [
             { size: "250ml", price: 20 },
             { size: "500ml", price: 40 },
@@ -698,7 +698,7 @@ export const items: Item[] = [
     },
     {
         name: "Sprite",
-        shortCode: "CM03",
+        shortCode: "S03",
         variations: [
             { size: "250ml", price: 20 },
             { size: "500ml", price: 40 },
@@ -708,7 +708,7 @@ export const items: Item[] = [
     },
     {
         name: "Cold Coffee",
-        shortCode: "CM04",
+        shortCode: "CC04",
         variations: [
             { size: "Small", price: 70 },
             { size: "Medium", price: 90 },
@@ -718,7 +718,7 @@ export const items: Item[] = [
     },
     {
         name: "Veggie Delight",
-        shortCode: "CM05",
+        shortCode: "VD05",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -739,7 +739,7 @@ export const items: Item[] = [
     },
     {
         name: "Cheese Burst",
-        shortCode: "CM06",
+        shortCode: "CB06",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -760,7 +760,7 @@ export const items: Item[] = [
     },
     {
         name: "Paneer Tandoori",
-        shortCode: "CM07",
+        shortCode: "PT07",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -781,7 +781,7 @@ export const items: Item[] = [
     },
     {
         name: "premium-pizza",
-        shortCode: "CM08",
+        shortCode: "P08",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -823,7 +823,7 @@ export const items: Item[] = [
     },
     {
         name: "Signature Paradise Pizza",
-        shortCode: "CM10",
+        shortCode: "SP10",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -844,7 +844,7 @@ export const items: Item[] = [
     },
     {
         name: "Supreme Corn Cheese",
-        shortCode: "CM11",
+        shortCode: "SC11",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -865,7 +865,7 @@ export const items: Item[] = [
     },
     {
         name: "Supreme Garden Fresh",
-        shortCode: "CM12",
+        shortCode: "SG12",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -886,7 +886,7 @@ export const items: Item[] = [
     },
     {
         name: "Signature Paneer Makhani",
-        shortCode: "CM13",
+        shortCode: "SP13",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -907,7 +907,7 @@ export const items: Item[] = [
     },
     {
         name: "Premium Tandoori Paneer",
-        shortCode: "CM14",
+        shortCode: "PT14",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -928,7 +928,7 @@ export const items: Item[] = [
     },
     {
         name: "Paneer Maharaja Pizza",
-        shortCode: "CM15",
+        shortCode: "PM15",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -949,7 +949,7 @@ export const items: Item[] = [
     },
     {
         name: "Paneer Overload",
-        shortCode: "CM16",
+        shortCode: "PO16",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -970,7 +970,7 @@ export const items: Item[] = [
     },
     {
         name: "Cheese Feast",
-        shortCode: "CM17",
+        shortCode: "CF17",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -991,7 +991,7 @@ export const items: Item[] = [
     },
     {
         name: "Signature Peri Peri Chicken Pizza",
-        shortCode: "CM18",
+        shortCode: "SP18",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -1012,7 +1012,7 @@ export const items: Item[] = [
     },
     {
         name: "Veggie Supreme",
-        shortCode: "CM19",
+        shortCode: "VS19",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -1033,7 +1033,7 @@ export const items: Item[] = [
     },
     {
         name: "Non-Veg Supreme",
-        shortCode: "CM20",
+        shortCode: "NV20",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -1054,7 +1054,7 @@ export const items: Item[] = [
     },
     {
         name: "Paneer Veggie Supreme",
-        shortCode: "CM21",
+        shortCode: "PV21",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -1075,7 +1075,7 @@ export const items: Item[] = [
     },
     {
         name: "Cheese Veggie Supreme",
-        shortCode: "CM22",
+        shortCode: "CV22",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -1096,7 +1096,7 @@ export const items: Item[] = [
     },
     {
         name: "Onion Pizza",
-        shortCode: "CM23",
+        shortCode: "OP23",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -1117,7 +1117,7 @@ export const items: Item[] = [
     },
     {
         name: "Capsicum Pizza",
-        shortCode: "CM24",
+        shortCode: "CP24",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -1138,7 +1138,7 @@ export const items: Item[] = [
     },
     {
         name: "Pizza Margherita",
-        shortCode: "CM25",
+        shortCode: "PM25",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -1159,7 +1159,7 @@ export const items: Item[] = [
     },
     {
         name: "Margherita Pizza",
-        shortCode: "CM26",
+        shortCode: "MP26",
         variations: [
             { size: "Small", price: 199 },
             { size: "Medium", price: 299 },
@@ -1180,7 +1180,7 @@ export const items: Item[] = [
     },
     {
         name: "Chicken Burger",
-        shortCode: "CM27",
+        shortCode: "CB27",
         variations: [
             { size: "Small", price: 109 },
             { size: "Large", price: 159 },
@@ -1200,7 +1200,7 @@ export const items: Item[] = [
     },
     {
         name: "Classic Burger",
-        shortCode: "CM28",
+        shortCode: "CB28",
         variations: [
             { size: "Small", price: 99 },
             { size: "Large", price: 149 },
@@ -1220,7 +1220,7 @@ export const items: Item[] = [
     },
     {
         name: "Cheese Burger",
-        shortCode: "CM29",
+        shortCode: "CB29",
         variations: [
             { size: "Small", price: 109 },
             { size: "Large", price: 159 },
@@ -1240,7 +1240,7 @@ export const items: Item[] = [
     },
     {
         name: "Veg Burger",
-        shortCode: "CM30",
+        shortCode: "VB30",
         variations: [
             { size: "Small", price: 89 },
             { size: "Large", price: 129 },
@@ -1260,7 +1260,7 @@ export const items: Item[] = [
     },
     {
         name: "Garlic Bread",
-        shortCode: "CM31",
+        shortCode: "GB31",
         variations: [
             { size: "1", price: 69 },
         ],
@@ -1268,7 +1268,7 @@ export const items: Item[] = [
     },
     {
         name: "Choco Lava Cake",
-        shortCode: "CM32",
+        shortCode: "CL32",
         variations: [
             { size: "1", price: 99 },
         ],

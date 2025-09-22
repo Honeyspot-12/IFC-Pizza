@@ -1,117 +1,36 @@
 
 
-// // cart context kese banaye
+// cart context kese banaye
 
-// "use client"
-
-// import React from "react";
-// import { createContext,useContext,useState} from "react";
-
-// interface cartitem{
-//   id:string;
-//   name:string;
-//   variation:string;
-//   size:string;
-//   topping:string[];
-//   qty:number;
-//   price:number;
-// }
-
-// interface cartcontexttype{
-//   cart:cartitem[];
-//   addtocart:(item:cartitem)=>void;
-//   removeFromCart:(id:string)=>void;
-//   total:number;
-//   increase:(item:string,change:number)=>void;
-//   decrease:(item:string,change:number)=>void;
-// }
-
-// //context Banaya hai
-// const cartcontext=createContext<cartcontexttype|undefined>(undefined);
-
-// //context provider jo wrapper component hai
-// export const CartProvider=({children}:{children:React.ReactNode})=>{
-//   const [cart,setCart]=useState<cartitem[]>([])
-
-//   const addtocart=(item:cartitem)=>{
-//     setCart((prev)=>{
-//       const existing=prev.find((i)=>i.id===item.id)
-//       if(existing){
-//         return prev.map((i)=>
-//         i.id===item.id ? {...i,qty:i.qty+1}:i
-//         )
-//       }
-//       return [...prev,item]
-//     })
-//   }
-
-
-//   const removeFromCart=(item:string)=>{
-//     setCart((prev)=>prev.filter((i)=>i.id!==item))
-//   }
-
-//   const total=cart.reduce((sum,i)=>sum+i.qty*i.price,0)
-
-//   const increase=(item:string,change:number)=>{
-//     setCart((prev)=>
-//      prev.map((i)=>
-//       i.name===item ?{...i,qty:i.qty+change}:i
-//      )
-//     )
-//   }
-
-//   const decrease=(item:string,change:number)=>{
-//     setCart((prev)=>
-//      prev.map((i)=>
-//       i.name===item ? {...i,qty:i.qty-change-500}:i
-//      )
-//      .filter((i)=>i.qty>0)
-//     )
-//   }
-
-//   return (
-//     <cartcontext.Provider value={{cart,addtocart,removeFromCart,total,increase,decrease}}>
-//       {children}
-//     </cartcontext.Provider>
-//   )
-
-// }
-
-// export const useCart=()=>{
-//   const context=useContext(cartcontext)
-//   if(!context) throw new Error("context error")
-//   return context;
-// }
-
-
+"use client"
 
 import React from "react";
-import { createContext,useContext,useState } from "react";
+import { createContext,useContext,useState} from "react";
 
 interface cartitem{
-  id:string,
-  name:string,
-  variation:string,
-  size:string,
-  topping:string[],
-  qty:number,
-  price:number,
+  id:string;
+  name:string;
+  variation:string;
+  size:string;
+  topping:string[];
+  qty:number;
+  price:number;
 }
 
-interface createcontexttype{
+interface cartcontexttype{
   cart:cartitem[];
   addtocart:(item:cartitem)=>void;
-  removeFromCart:(item:string)=>void;
+  removeFromCart:(id:string)=>void;
   total:number;
   increase:(item:string,change:number)=>void;
   decrease:(item:string,change:number)=>void;
 }
 
+//context Banaya hai
+const cartcontext=createContext<cartcontexttype|undefined>(undefined);
 
-const cartcontext=createContext<createcontexttype|undefined>(undefined);
-
+//context provider jo wrapper component hai
 export const CartProvider=({children}:{children:React.ReactNode})=>{
-
   const [cart,setCart]=useState<cartitem[]>([])
 
   const addtocart=(item:cartitem)=>{
@@ -119,15 +38,16 @@ export const CartProvider=({children}:{children:React.ReactNode})=>{
       const existing=prev.find((i)=>i.id===item.id)
       if(existing){
         return prev.map((i)=>
-          i.id===item.id ? {...i,qty:i.qty}:i
+        i.id===item.id ? {...i,qty:i.qty+1}:i
         )
       }
       return [...prev,item]
     })
   }
 
+
   const removeFromCart=(item:string)=>{
-    setCart((prev)=>prev.filter((i)=>i.id!==item));
+    setCart((prev)=>prev.filter((i)=>i.id!==item))
   }
 
   const total=cart.reduce((sum,i)=>sum+i.qty*i.price,0)
@@ -135,30 +55,35 @@ export const CartProvider=({children}:{children:React.ReactNode})=>{
   const increase=(item:string,change:number)=>{
     setCart((prev)=>
      prev.map((i)=>
-      i.name===item ? {...i,qty:i.qty+change}:i
+      i.name===item ?{...i,qty:i.qty+change}:i
      )
     )
   }
 
   const decrease=(item:string,change:number)=>{
     setCart((prev)=>
-    prev.map((i)=>
-      i.name===item ? {...i,qty:i.qty - change}:i
+     prev.map((i)=>
+      i.name===item ? {...i,qty:i.qty-change-500}:i
      )
      .filter((i)=>i.qty>0)
     )
-    
   }
 
   return (
     <cartcontext.Provider value={{cart,addtocart,removeFromCart,total,increase,decrease}}>
-      {children} 
+      {children}
     </cartcontext.Provider>
   )
+
 }
 
 export const useCart=()=>{
-  const context=useContext(cartcontext);
-  if(!context)  throw new Error("context Error ")
-    return context
+  const context=useContext(cartcontext)
+  if(!context) throw new Error("context error")
+  return context;
 }
+
+
+
+
+

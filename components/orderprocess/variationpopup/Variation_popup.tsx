@@ -57,9 +57,9 @@ const Variation_popup: React.FC<VariationPopupProps> = ({ item, onClose }) => {
         });
 
         onClose(); // Close popup after adding to cart
+        
 
     }
-    
 
 return (
     <div className="bg-black/50 fixed top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-black">
@@ -87,7 +87,6 @@ return (
                             >
                                 {variation.size}@{variation.price}
                             </button>
-
                         </div>
                     ))}
                 </div>

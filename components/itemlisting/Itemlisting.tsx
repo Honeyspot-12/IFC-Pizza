@@ -1,64 +1,28 @@
-// import React from 'react'
-// import { items } from "../orderprocess/itemlistsdata/itemdata";
-// import { BiEditAlt } from "react-icons/bi";
-// import { RiDeleteBinLine } from "react-icons/ri";
+"use client"
 
-
-// const Itemlisting = () => {
-//   return (
-//     <div className='border-1 border-[#A5A5A5] mx-6 mt-6 rounded bg-white'>
-//       {/* Header */}
-//       <div className='grid grid-cols-8 bg-[#994D1C] text-white px-5 py-2 rounded-t font-medium'>
-//         <span className='col-span-1'>S.No.</span>
-//         <span className='col-span-2'>Name</span>
-//         <span className='col-span-1 text-center'>Short Code</span>
-//         <span className='col-span-1 text-center'>Price (₹)</span>
-//         <span className='col-span-1 text-center'>Favourite</span>
-//         <span className='col-span-1 text-center'>Stock Status</span>
-//         <span className='col-span-1 text-center'>Action</span>
-//       </div>
-
-//       {/* Item Rows */}
-//       <div className='text-black overflow-y-auto max-h-[calc(100vh-250px)]'>
-//         {items.map((item, index) => (
-//           <div key={item.name} className='grid grid-cols-8 px-5 py-3 items-center text-sm border-b border-[#A5A5A5] text-[#363636] font-medium'>
-//             <span className='col-span-1 whitespace-nowrap'>{index + 1}.</span>
-//             <span className='col-span-2 whitespace-nowrap'>{item.name}</span>
-//             <span className='col-span-1 text-center'>N/A</span>
-//             <span className='col-span-1 text-center'>N/A</span>
-//             <span className='col-span-1 text-center'>
-//               <input type="checkbox" name="" id="" />
-//             </span>
-//             <span className='col-span-1 text-center'>In Stock</span>
-//             <span className='col-span-1 text-center'>
-//               <div className=' '>
-//             <button className='border-1 border-[#363636] p-1 rounded cursor-pointer'><BiEditAlt/></button>
-//             <button className='border-1 border-[#363636] p-1 rounded cursor-pointer'><RiDeleteBinLine/></button>
-//             </div>
-//             </span>
-//           </div>
-//         ))}
-//         </div>
-//     </div>
-//   )
-// }
-
-// export default Itemlisting
-
-
-
-
-
-
-
-
-
-import React from "react";
-import { items } from "../orderprocess/itemlistsdata/itemdata";
+import React, { useState } from "react";
+import { items as allitems,Item, items } from "../orderprocess/itemlistsdata/itemdata";
 import { BiEditAlt } from "react-icons/bi";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { IoMdArrowDropright } from "react-icons/io";
+import Checkvariation from "./checkvariation/Checkvariation";
+
+
 
 const Itemlisting = () => {
+  const [selectedItem,setSelectedItem]=useState<Item|null>(null)
+  const [remove,setRemove]=useState(allitems)
+
+  
+  const removefromcart=(item:string)=>{
+    setRemove((prev)=>prev.filter((i)=>i.name!==item))
+  }
+
+
+
+  const find=(name:string):Item|undefined=>
+    allitems.find((i)=>i.name===name)
+
   return (
     <div className="border border-[#A5A5A5] mx-6 mt-6 rounded bg-white shadow-sm">
       {/* Header */}
@@ -74,7 +38,7 @@ const Itemlisting = () => {
 
       {/* Item Rows */}
       <div className="text-black overflow-y-auto max-h-[calc(100vh-250px)] text-sm">
-        {items.map((item, index) => (
+        {remove.map((item, index) => (
           <div
             key={item.name}
             className="grid grid-cols-7 px-4 py-3 items-center border-b border-[#A5A5A5] hover:bg-gray-50 transition"
@@ -89,14 +53,24 @@ const Itemlisting = () => {
             <span className="text-center">{item.shortCode}</span>
 
             {/* Price */}
-            <span className="text-center text-[#994D1C] font-medium cursor-pointer">
+            <button className="text-center text-[#994D1C] font-medium cursor-pointer flex items-center justify-center gap-2"
+            onClick={()=>{
+              const found=find(item.name)
+              if(found){
+                setSelectedItem(found)
+              }
+            }}
+            >
               
-              200
-            </span>
+              check variation <IoMdArrowDropright />
+            </button>
 
             {/* Favourite Checkbox */}
-            <span className="text-center">
-              <input type="checkbox" className="w-4 h-4 cursor-pointer" />
+            <span className="text-center flex justify-center items-center ">
+              <input type="checkbox" className="w-4 h-4 cursor-pointer appearance-none border border-[#A5A5A5] rounded-sm 
+             checked:bg-[#363636] checked:border-black 
+             relative
+             before:content-['✓'] before:absolute before:text-white before:text-[12px] before:font-bold before:opacity-0 checked:before:opacity-100 items-center flex justify-center" />
             </span>
 
             {/* Stock Toggle */}
@@ -109,16 +83,26 @@ const Itemlisting = () => {
 
             {/* Action Buttons */}
             <span className="text-center flex justify-center gap-2">
-              <button className="border border-[#363636] p-1 rounded hover:bg-gray-100">
+              <button className="border border-[#363636] p-1 rounded hover:bg-gray-100 cursor-pointer">
                 <BiEditAlt />
               </button>
-              <button className="border border-[#363636] p-1 rounded hover:bg-gray-100">
+              <button key={index} className="border border-[#363636] p-1 rounded hover:bg-gray-100 cursor-pointer "
+              onClick={()=>removefromcart(item.name)}
+              >
                 <RiDeleteBinLine />
               </button>
+              
+             
             </span>
           </div>
         ))}
       </div>
+      
+      {selectedItem &&(
+        <Checkvariation item={selectedItem}
+        onClose={()=>setSelectedItem(null)}
+        />
+      )}
     </div>
   );
 };
