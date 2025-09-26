@@ -277,57 +277,158 @@
 
 
 
+// import React from "react";
+// import { SiTicktick } from "react-icons/si";
+
+// const Test2 = () => {
+//     return (
+
+//         <div className="relative bg-[#8B3E1D]   text-white  ">
+//             {/* Top curve */}
+//             <div
+//                 className="absolute -top-[10px] left-0 w-full h-[80px]
+//                       [clip-path:ellipse(58%_99%_at_50%_0)]
+//               bg-white"
+//             ></div>
+
+//             {/* Background Image*/}
+
+
+//             <div className="relative w-full h-screen overflow-hidden">
+//                 {/* Background image */}
+//                 <img
+//                     src="./Pizza.jpg"
+//                     alt="pizza"
+//                     className="w-full h-full py-16 "
+//                 />
+
+//                 {/*  Content */}
+//                 <div className="absolute inset-0 bg-black/40 my-16  grid grid-cols-2 justify-center items-center p-8">
+
+
+//                     {/* <div className="bg-white rounded-xl  shadow-lg flex justify-center mx-40 
+//                             [clip-path:ellipse(130px_140px_at_10%_20%)] [clip-path:polygon(50%_0,100%_50%,50%_100%,0_50%)]
+//                             ">
+//                                 <img src="./girl.png" alt="girl" className="w-full  h-auto rounded-lg" />
+//                             </div> */}
+
+//                 <div className="px-50 ">
+//                     <div className="border border-white rounded-[65px] bg-white flex items-center justify-center 
+//                     w-[300px] h-[320px] [clip-path:polygon(0%_0,105%_39%,103%_247%,0_85%)]
+                      
+//                     ">
+//                     <img
+//                         src="./girl.png"
+//                         alt="Girl eating pizza"
+//                         className="w-[300px] h-[320px] object-cover "
+//                     />
+//                     </div>
+//                 </div>
+
+                
+//                     <div className="">
+//                         <button className="bg-white text-black px-5 py-1 rounded-2xl cursor-pointer">
+//                             About Us
+//                         </button>
+//                         <h2 className="text-3xl mt-3">
+//                             Where Every <span className="font-bold">Slice Tells</span> A Story
+//                             Of
+//                         </h2>
+//                         <h2 className="text-3xl ">
+//                             Taste, Quality, And <span className="font-bold">Passion</span>
+//                         </h2>
+
+
+
+//                         <p className="mt-3">
+//                             At IFC Pizza, We Believe That Pizza Is More Than Just Food—It’s
+//                             A Way To Bring Joy
+//                         </p>
+//                         <p>
+//                             To Every Table. With Carefully Selected Ingredients, Unique
+//                             Flavors, And A Passion
+//                         </p>
+//                         <p>For Excellence</p>
+
+
+//                         <div className="grid grid-cols-2  gap-4 mt-6">
+//                             {["Authentic Taste", "Wood Fired", "Fresh Serve", "Wide Variety", "Best Quality"].map((feature, i) => (
+
+//                                 <button
+//                                     key={i}
+//                                     className='bg-white text-orange-400  pl-2 py-2 rounded-3xl flex gap-3 items-center cursor-pointer'
+//                                 >
+//                                     <SiTicktick className='bg-orange-400 text-white p-1 rounded-full' />
+//                                     {feature}
+//                                 </button>
+
+//                             ))}
+//                         </div>
+
+
+//                     </div>
+//                 </div>
+//             </div>
+
+
+//             {/* Bottom curve */}
+//             <div
+//                 className="absolute -bottom-[10px] left-0 w-full h-[80px] 
+//                 [clip-path:ellipse(55%_99%_at_50%_100%)] 
+//               bg-white"
+//             ></div>
+//         </div>
+
+//     );
+// };
+
+// export default Test2;
+
+
+
+
+
+
+
 import React from "react";
 import { SiTicktick } from "react-icons/si";
-
-const Test2 = () => {
+ 
+const serviceItems = [
+    { name: 'Online Order', image: '/phone.png' },
+    { name: '24/7 Service', image: '/24hours.png' },
+    { name: 'Pre-Reservation', image: '/calender.png' },
+    { name: 'Oragonized Foodhut Place', image: '/calender.png' }, // Typo from original image
+    { name: 'Super Chef', image: '/calender.png' },
+    { name: 'Clean Kitchen', image: '/calender.png' },
+];
+const MultipleService = () => {
     return (
-
-        <div className="relative bg-[#8B3E1D]   text-white  ">
+ 
+        <div className="relative bg-[#834510]   text-white  ">
             {/* Top curve */}
             <div
                 className="absolute -top-[10px] left-0 w-full h-[80px]
                       [clip-path:ellipse(58%_99%_at_50%_0)]
               bg-white"
             ></div>
-
+ 
             {/* Background Image*/}
-
-
+ 
+ 
             <div className="relative w-full h-screen overflow-hidden">
-                {/* Background image */}
-                <img
-                    src="./Pizza.jpg"
-                    alt="pizza"
-                    className="w-full h-full py-16 "
-                />
-
                 {/*  Content */}
-                <div className="absolute inset-0 bg-black/40 my-16  grid grid-cols-2 justify-center items-center p-8">
-
-
-                    {/* <div className="bg-white rounded-xl  shadow-lg flex justify-center mx-40 
-                            [clip-path:ellipse(130px_140px_at_10%_20%)] [clip-path:polygon(50%_0,100%_50%,50%_100%,0_50%)]
+                <div className="absolute inset-0 bg-[url('/pizza.jpg')] my-16  bg-cover bg-no-repeat grid grid-cols-1 lg:grid-cols-2 justify-center items-center p-2 lg:p-8 ">
+ 
+ 
+                    <div className=" rounded-xl  shadow-lg flex justify-center mx-40
+                            clip-path-[ellipse(130px_140px_at_10%_20%)]
                             ">
-                                <img src="./girl.png" alt="girl" className="w-full  h-auto rounded-lg" />
-                            </div> */}
-
-                <div className="px-50 ">
-                    <div className="border border-white rounded-[65px] bg-white flex items-center justify-center 
-                    w-[300px] h-[320px] [clip-path:polygon(0%_0,105%_39%,103%_247%,0_85%)]
-                      
-                    ">
-                    <img
-                        src="./girl.png"
-                        alt="Girl eating pizza"
-                        className="w-[300px] h-[320px] object-cover "
-                    />
+                        <img src="/girl.png" alt="girl" className=" hidden lg:block w-full  h-auto rounded-lg " />
                     </div>
-                </div>
-
-                
-                    <div className="">
-                        <button className="bg-white text-black px-5 py-1 rounded-2xl cursor-pointer">
+ 
+ 
+                    <div className="flex flex-col items-center justify-center text-center">
+                        <button className="bg-white/50 text-white px-5 py-1 rounded-2xl cursor-pointer">
                             About Us
                         </button>
                         <h2 className="text-3xl mt-3">
@@ -337,9 +438,9 @@ const Test2 = () => {
                         <h2 className="text-3xl ">
                             Taste, Quality, And <span className="font-bold">Passion</span>
                         </h2>
-
-
-
+ 
+ 
+ 
                         <p className="mt-3">
                             At IFC Pizza, We Believe That Pizza Is More Than Just Food—It’s
                             A Way To Bring Joy
@@ -349,37 +450,36 @@ const Test2 = () => {
                             Flavors, And A Passion
                         </p>
                         <p>For Excellence</p>
-
-
-                        <div className="grid grid-cols-2  gap-4 mt-6">
-                            {["Authentic Taste", "Wood Fired", "Fresh Serve", "Wide Variety", "Best Quality"].map((feature, i) => (
-
+ 
+ 
+                        <div className="grid grid-cols-2 max-w-lg gap-4 mt-6">
+                            {serviceItems.map((feature, i) => ((
                                 <button
                                     key={i}
-                                    className='bg-white text-orange-400  pl-2 py-2 rounded-3xl flex gap-3 items-center cursor-pointer'
+                                    className='bg-white text-primary  pl-2 py-2 px-2 rounded-3xl flex gap-3  items-center cursor-pointer'
                                 >
-                                    <SiTicktick className='bg-orange-400 text-white p-1 rounded-full' />
-                                    {feature}
+                                    <SiTicktick className='bg-primary text-white p-1 rounded-full'/>
+                                    {feature.name}
                                 </button>
-
-                            ))}
+ 
+                            )))}
                         </div>
-
-
+ 
+ 
                     </div>
                 </div>
             </div>
-
-
+ 
+ 
             {/* Bottom curve */}
             <div
-                className="absolute -bottom-[10px] left-0 w-full h-[80px] 
-                [clip-path:ellipse(55%_99%_at_50%_100%)] 
+                className="absolute -bottom-[10px] left-0 w-full h-[80px]
+                [clip-path:ellipse(55%_99%_at_50%_100%)]
               bg-white"
             ></div>
         </div>
-
+ 
     );
 };
-
-export default Test2;
+ 
+export default MultipleService;

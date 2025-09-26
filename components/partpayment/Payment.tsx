@@ -21,7 +21,7 @@ const Payment = () => {
     ]
 
     return (
-        <div>
+        <div className='bg-white pb-6'>
             <div className='flex text-black  px-3 py-2'>
                 <span className=' border-b border-[#C9C9C9] w-full font-medium py-3'>Part Payment</span>
             </div>
@@ -38,18 +38,16 @@ const Payment = () => {
             </div>
 
             <div className='border-1 border-[#C9C9C9] mx-3 pb-14'>
-                <div className='bg-[#F0F0F0] flex border-b border-[#C9C9C9]'>
-                    {/* <button className='text-white bg-[#A85916] py-8 px-12 border-r border-[#C9C9C9]'>Card</button>
-                <button className='text-black py-8 px-12 border-r border-[#C9C9C9]'>Other</button>
-                <button className='text-black py-8 px-12 border-r border-[#C9C9C9]'>Due Payment</button> */}
+                <div className='bg-[#F0F0F0] flex flex-wrap border-b border-[#C9C9C9]'>
+                    
 
                     {categories.map((i) => (
                         <button
                             key={i.name}
                             onClick={() => setActive(i.name)}
-                            className={`py-8 px-12 border-r border-[#C9C9C9] cursor-pointer ${active === i.name
+                            className={`py-5 md:py-8 px-12 w-full md:w-auto  border-b md:border-b-0 md:border-r border-[#C9C9C9] cursor-pointer  ${active === i.name
                                 ? "text-white bg-[#A85916]"
-                                : "text-black"
+                                : "text-black bg-[#F0F0F0]]"
                                 }`}
 
                         >
@@ -58,15 +56,15 @@ const Payment = () => {
                     ))}
                 </div>
 
-                <div className='grid p-3 gap-4 items-center'>
-                    <span className='font-medium text-black'>Captured Amount:</span>
+                <div className='grid p-3 gap-4 items-center '>
+                    <span className='font-medium text-black flex justify-center sm:justify-start'>Captured Amount:</span>
 
-                    <div className='flex gap-2 items-center'>
+                    <div className='flex gap-2 items-center justify-center sm:justify-start'>
                         <span className='text-[#616161]'>Enter Amount:</span>
                         <input type="number"
                             className='border-1 border-[#C9C9C9] text-black rounded p-1'
                         />
-                        <button className='text-white bg-[#A85916] p-1 px-5 rounded cursor-pointer'>Save</button>
+                        <button className='text-white bg-[#A85916] p-1 px-4 sm:px-5 rounded cursor-pointer'>Save</button>
                     </div>
                 </div>
             </div>
@@ -112,7 +110,7 @@ const Payment = () => {
                 </div>
             </div>
 
-            <div className='flex gap-2 justify-end text-white mt-3 mx-3'>
+            <div className='flex gap-2 justify-center sm:justify-end text-white mt-3 mx-3'>
                 <button className='border-2 border-[#363636] text-[#363636] px-2 rounded font-medium cursor-pointer'>Back To Order</button>
                 <button className='bg-[#A85916] py-1 px-2 rounded cursor-pointer'>New Order</button>
                 <button className='bg-[#A85916] py-1 px-3 rounded cursor-pointer'>Print</button>

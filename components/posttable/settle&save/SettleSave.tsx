@@ -5,15 +5,15 @@ import { RxCross1 } from "react-icons/rx";
 const SettleSave = ({setshowprop}:{setshowprop:React.Dispatch<React.SetStateAction<boolean>>}) => {
   return (
     <div className='bg-black/50 fixed left-0 top-0 flex flex-col items-center justify-center w-full h-screen text-black'>
-      <div className='bg-white w-1/4 h-auto object-cover rounded pb-3'>
+      <div className='bg-white  h-auto object-cover rounded pb-3'>
       <span className='flex p-2 font-medium items-center justify-between border-b border-[#A5A5A5]'>Settlt & Save - Table 3 <RxCross1 
       className='cursor-pointer'
       onClick={()=>setshowprop(false)}
       /></span>
 
-      <div className='px-4 py-2'>
+      <div className='flex-1 px-4 py-2'>
         <h3 className='font-medium mb-2'>Payment Type</h3>
-        <div className='flex  gap-2 items-center justify-between'>
+        <div className='flex flex-wrap  gap-2 items-center justify-between'>
           {["cash","card","Due","Other","Part"].map((type)=>(
             <div key={type} className='flex items-center gap-2'>
               <input type="radio" name="paymentType" id={type} className='cursor-pointer'/>
@@ -65,3 +65,5 @@ const SettleSave = ({setshowprop}:{setshowprop:React.Dispatch<React.SetStateActi
 }
 
 export default SettleSave
+
+

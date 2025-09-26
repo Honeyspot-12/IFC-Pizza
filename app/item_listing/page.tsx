@@ -14,7 +14,7 @@ const page = () => {
     <div className='bg-white w-full'>
         <Topbar/>
         <Listheader/>
-        <Searchbar />
+        {/* <Searchbar /> */}
       <Itemlisting/>
     </div>
     </CartProvider>

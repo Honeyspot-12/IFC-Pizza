@@ -2,15 +2,14 @@
 
 import React from 'react'
 import { RxCross2 } from "react-icons/rx";
-import { MdClose } from "react-icons/md";
-import { GoCircle } from "react-icons/go";
+
 
 
 const Discount = () => {
     return (
         <>
             <div className='bg-black/50 fixed top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-black '>
-                <div className=' w-1/3  h-[53%] flex flex-col  bg-white gap-3 rounded-lg '>
+                <div className=' h-auto pb-4 flex flex-col  bg-white gap-3 rounded-lg '>
                     <div className='flex  items-center justify-between px-6 py-4 border-b-2 border-[#A5A5A5] '>
                         <span className='text-[#363636] font-medium' >Applied Discount</span>
                         <button

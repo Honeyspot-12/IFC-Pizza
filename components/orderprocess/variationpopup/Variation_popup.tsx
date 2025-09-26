@@ -15,8 +15,8 @@ const Variation_popup: React.FC<VariationPopupProps> = ({ item, onClose }) => {
 
     const [selectedSize, setSelectedSize] = useState<number | null>(null);
     const [selectedToppings, setSelectedToppings] = useState<string[]>([]);
-    const { addtocart,total } = useCart();
-
+    const { addtocart, total } = useCart();
+    
     //toggle topping
     const handleToppingChange = (toppingName: string) => {
         setSelectedToppings(prev =>
@@ -57,78 +57,81 @@ const Variation_popup: React.FC<VariationPopupProps> = ({ item, onClose }) => {
         });
 
         onClose(); // Close popup after adding to cart
-        
+
 
     }
 
-return (
-    <div className="bg-black/50 fixed top-0 left-0 flex flex-col items-center justify-center w-full h-screen text-black">
-        <div className="w-[50%] h-[56%] flex flex-col bg-white gap-3 rounded-lg">
-            <div className="flex items-center justify-between px-6 py-3 border-b-2 border-[#A5A5A5]">
-                <span className="font-semibold text-lg">{item.name}</span>
-                <button className="cursor-pointer" onClick={onClose}>
-                    <RxCross2 className="text-[#868686] font-bold" />
-                </button>
-            </div>
+    return (
+        <div className="bg-black/50 fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-full h-screen text-black">
+            <div className=" w-full lg:w-[50%] h-auto flex flex-col bg-white gap-3 rounded-lg py-2">
+                <div className="flex items-center justify-between px-6 py-3 border-b-2 border-[#A5A5A5]">
+                    <span className="font-semibold text-lg">{item.name}</span>
+                    <button className="cursor-pointer" onClick={onClose}>
+                        <RxCross2 className="text-[#868686] font-bold" />
+                    </button>
+                </div>
 
-            {/* Example: Show variations */}
-            <div className="  px-4 ">
-                <h3 className="font-medium ">Variations:</h3>
-                <div className="flex gap-3">
-                    {item.variations.map((variation, index) => (
-                        <div key={index} className="flex py-2">
+                {/* Example: Show variations */}
+                <div className="  px-4 ">
+                    <h3 className="font-medium ">Variations:</h3>
+                    <div className="flex gap-3">
+                        {item.variations.map((variation, index) => (
+                            <div key={index} className="flex py-2">
 
-                            <button
-                                onClick={() => setSelectedSize(index)}
-                                className={`cursor-pointer rounded px-4 py-2 text-xs font-medium ${selectedSize === index
-                                    ? "bg-[#994D1C] text-white"
-                                    : "border-1 border-[#994D1C] text-[#994D1C]"
-                                    }`}
-                            >
-                                {variation.size}@{variation.price}
-                            </button>
+                                <button
+                                    onClick={() => setSelectedSize(index)}
+                                    className={`cursor-pointer rounded px-4 py-2 text-xs font-medium ${selectedSize === index
+                                        ? "bg-[#994D1C] text-white"
+                                        : "border-1 border-[#994D1C] text-[#994D1C]"
+                                        }`}
+                                >
+                                    {variation.size}@{variation.price}
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <h3 className="font-medium px-3 mt-1 mb-2 ">Toppings:</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-2 border-b  pb-5 border-[#A5A5A5]">
+                    {item.toppings.map((topping, index) => (
+                        <div key={index} className="  ">
+                            <div className="border-1 border-[#994D1C] h-full  rounded text-xs font-medium p-3  flex gap-2  items-center justify-between">
+                                <div className="grid ">
+                                    <span>{topping.name}</span>
+                                    <span>₹{topping.price}</span>
+                                </div>
+                                <div>
+                                    <input
+                                        type="checkbox"
+                                        className="w-4 h-4 cursor-pointer appearance-none border border-[#994D1C] rounded-sm 
+             checked:bg-[#994D1C] checked:border-[#994D1C] 
+             relative
+             before:content-['✓'] before:absolute before:text-white before:text-[12px] before:font-bold before:opacity-0 checked:before:opacity-100 items-center flex justify-center"
+                                        checked={selectedToppings.includes(topping.name)}
+                                        onChange={() => handleToppingChange(topping.name)}
+                                    />
+                                </div>
+                            </div>
+
+
                         </div>
                     ))}
                 </div>
-            </div>
 
-            <h3 className="font-medium px-3 mt-1 mb-2 ">Toppings:</h3>
-            <div className="grid grid-cols-5 gap-3 px-2 border-b pb-5 border-[#A5A5A5]">
-                {item.toppings.map((topping, index) => (
-                    <div key={index} className="  ">
-                        <div className="border-1 border-[#994D1C] rounded text-xs font-medium p-3  flex gap-2  items-center justify-between">
-                            <div className="grid ">
-                                <span>{topping.name}</span>
-                                <span>₹{topping.price}</span>
-                            </div>
-                            <div>
-                                <input
-                                    type="checkbox"
-                                    className="cursor-pointer"
-                                    checked={selectedToppings.includes(topping.name)}
-                                    onChange={() => handleToppingChange(topping.name)}
-                                />
-                            </div>
-                        </div>
+                <div className="flex gap-3 items-center justify-end px-3">
 
-
-                    </div>
-                ))}
-            </div>
-
-            <div className="flex gap-3 items-center justify-end px-3">
-
-                <button className="border-1 border-[#994D1C] p-2 rounded text-sm px-3 cursor-pointer"
-                    onClick={onClose}
-                >Cancel</button>
-                <button className="bg-[#994D1C] p-2 rounded text-sm text-white px-6 cursor-pointer "
-                    onClick={handleSave}
-                >Save</button>
+                    <button className="border-1 border-[#994D1C] p-2 rounded text-sm px-3 cursor-pointer"
+                        onClick={onClose}
+                    >Cancel</button>
+                    <button className="bg-[#994D1C] p-2 rounded text-sm text-white px-6 cursor-pointer "
+                        onClick={handleSave}
+                    >Save</button>
+                </div>
             </div>
         </div>
-    </div>
 
-);
+    );
 };
 
 export default Variation_popup;

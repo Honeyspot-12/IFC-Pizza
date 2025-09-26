@@ -24,7 +24,7 @@ const Appliedtax: React.FC = () => {
 
   return (
     <section className='bg-black/50 fixed top-0 left-0 items-center  justify-center h-screen w-full text-black flex flex-col shadow-md'>
-      <div className=' w-1/4  h-1/3 flex flex-col  bg-white gap-8 rounded-lg '>
+      <div className='h-auto pb-4 flex flex-col  bg-white gap-5 rounded-lg '>
         <div className='flex  items-center justify-between px-6 py-4 border-b-2 border-[#A5A5A5] '>
           <span className='text-[#363636] font-medium' >Applied Tax</span>
           <button

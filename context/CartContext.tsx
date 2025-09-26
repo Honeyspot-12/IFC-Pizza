@@ -24,6 +24,8 @@ interface cartcontexttype{
   total:number;
   increase:(item:string,change:number)=>void;
   decrease:(item:string,change:number)=>void;
+  searchterm: string;
+  setSearchterm: (item: string) => void;
 }
 
 //context Banaya hai
@@ -32,6 +34,7 @@ const cartcontext=createContext<cartcontexttype|undefined>(undefined);
 //context provider jo wrapper component hai
 export const CartProvider=({children}:{children:React.ReactNode})=>{
   const [cart,setCart]=useState<cartitem[]>([])
+  const [searchterm, setSearchterm] = useState("");
 
   const addtocart=(item:cartitem)=>{
     setCart((prev)=>{
@@ -63,14 +66,15 @@ export const CartProvider=({children}:{children:React.ReactNode})=>{
   const decrease=(item:string,change:number)=>{
     setCart((prev)=>
      prev.map((i)=>
-      i.name===item ? {...i,qty:i.qty-change-500}:i
+      i.name===item ? {...i,qty:i.qty-change}:i
      )
      .filter((i)=>i.qty>0)
     )
   }
 
   return (
-    <cartcontext.Provider value={{cart,addtocart,removeFromCart,total,increase,decrease}}>
+    <cartcontext.Provider value={{cart,addtocart,removeFromCart,total,increase,decrease,searchterm,
+        setSearchterm}}>
       {children}
     </cartcontext.Provider>
   )
@@ -82,7 +86,6 @@ export const useCart=()=>{
   if(!context) throw new Error("context error")
   return context;
 }
-
 
 
 
