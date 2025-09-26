@@ -18,7 +18,7 @@ const Layout = ({
 
   return (
     <>
-    <CartProvider>
+    {/* <CartProvider> */}
       <Topbar />
       <Order />
       <div className=''>
@@ -30,11 +30,10 @@ const Layout = ({
           <Cartsection />
         </div>
       </div>
-      <div className='md:hidden  '>
-      
-      <Viewcart />
+      <div className='md:hidden'>
+      <Viewcart/>
       </div>
-      </CartProvider>
+      {/* </CartProvider> */}
     </>
 
   );

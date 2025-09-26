@@ -247,22 +247,22 @@ const Cartsection: React.FC = () => {
 
           {/* Buttons */}
           <div className="flex gap-2 p-3 bg-[#f8f8f8]">
-  <button className="flex-1 bg-[#8B4513] text-white rounded cursor-pointer whitespace-nowrap">
-    Save
-  </button>
-  <button className="flex-1 bg-[#8B4513] text-white py-2 px-2 rounded cursor-pointer whitespace-nowrap">
-    Print & eBill
-  </button>
-  <button className="flex-1 bg-black text-white py-2 rounded cursor-pointer whitespace-nowrap">
-    KOT
-  </button>
-  <button className="flex-1 bg-black text-white py-2 px-2 rounded cursor-pointer whitespace-nowrap">
-    KOT & Print
-  </button>
-  <button className="flex-1 text-black py-2 rounded border-2 cursor-pointer whitespace-nowrap">
-    Hold
-  </button>
-</div>
+            <button className="flex-1 bg-[#8B4513] text-white rounded cursor-pointer whitespace-nowrap">
+              Save
+            </button>
+            <button className="flex-1 bg-[#8B4513] text-white py-2 px-2 rounded cursor-pointer whitespace-nowrap">
+              Print & eBill
+            </button>
+            <button className="flex-1 bg-black text-white py-2 rounded cursor-pointer whitespace-nowrap">
+              KOT
+            </button>
+            <button className="flex-1 bg-black text-white py-2 px-2 rounded cursor-pointer whitespace-nowrap">
+              KOT & Print
+            </button>
+            <button className="flex-1 text-black py-2 rounded border-2 cursor-pointer whitespace-nowrap">
+              Hold
+            </button>
+          </div>
 
         </div>
       </div>

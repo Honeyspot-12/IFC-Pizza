@@ -10,14 +10,16 @@ import { RxCross2 } from "react-icons/rx";
 import { MdOutlineKeyboardArrowUp, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { TbRectangleFilled, TbReload } from "react-icons/tb";
 
-const Cart = () => {
+const Cart:React.FC = () => {
     const { cart, removeFromCart } = useCart();
     const [showform, setShowform] = useState<boolean>(false)
     const [scrollup, setScrollup] = useState<boolean>(false)
 
     console.log("cart", cart)
     const { total, increase, decrease } = useCart()
-    return (
+    return (<>
+    {/* This is the mobile cart view */}
+    <div className="fixed bottom-0 left-0 right-0 z-10 md:hidden">
         <div className=" w-auto bg-white h-screen border-l-2 border-[#A5A5A5] flex flex-col text-black">
             <div className='flex bg-[#f8f8f8] border-b border-[#A5A5A5] ' >
 
@@ -263,6 +265,8 @@ const Cart = () => {
             </div>
 
         </div>
+        </div>
+        </>
     )
 }
 
