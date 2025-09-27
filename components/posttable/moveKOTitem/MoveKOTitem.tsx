@@ -104,7 +104,7 @@ interface Table {
 }
 
 const MoveKOTitem = ({
-    setShowpopup,
+    setShowpopup
 }: {
     setShowpopup: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {

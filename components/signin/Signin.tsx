@@ -7,31 +7,31 @@ import { CgPassword } from 'react-icons/cg';
 import { BiHide } from "react-icons/bi";
 
 const Signin = () => {
-  const [name,setName]=useState('')
-  const [password,setPassword]=useState('')
-  const [error,setError]=useState('')
-  const [loading,setLoading]=useState(false)
-  const [showpassword,setShowpassword]=useState(false)
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [showpassword, setShowpassword] = useState(false)
 
-  const handleSignin=async(e:React.FormEvent)=>{
+  const handleSignin = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
     setLoading(true)
 
-    if(password.length>6){
+    if (password.length < 6) {
       setError("Password should be at least 6 characters long.")
       setLoading(false)
       return
     }
   }
-  
+
   return (
     <>
       {/* <section className='bg-black/50 fixed top-0 left-0 h-screen w-full
         text-black shadow-2xl flex flex-col items-center justify-center '> */}
-        <section className='bg-black/50  fixed  top-0 left-0 items-center justify-center h-screen w-full text-black flex flex-col shadow-2xl'>
-        <div className='flex bg-white gap-8 rounded-xl px-10 py-12 ' >
-          <div className=' flex bg-[#01239E1A] rounded-2xl '>
+      <section className='bg-black/50  fixed  top-0 left-0 items-center justify-center h-screen w-full text-black flex flex-col shadow-2xl'>
+        <div className='flex bg-white gap-8 rounded-xl px-10 py-12 h-auto ' >
+          <div className='  bg-[#01239E1A] rounded-2xl hidden md:block'>
             <img
               src="/loginimg.png"
               alt="logo"
@@ -40,9 +40,9 @@ const Signin = () => {
           </div>
 
           <div>
-            
+
             <h1 className='font-bold text-lg'>Welcome To Paynix</h1>
-            
+
             <h6 className='text-[#868686] text-sm font-medium'>Sign In To Access Accounts </h6>
 
             <div className='grid gap-1'>
@@ -50,47 +50,50 @@ const Signin = () => {
               <input
                 type="email"
                 placeholder='Enter Your Name'
-                className='border-1 border-[#C6C6C6] p-2 rounded-md' 
+                className='border-1 border-[#C6C6C6] p-2 rounded-md'
               />
             </div>
             <span className='font-medium'>Password</span>
             <div className='flex flex-col'>
               <input
-                type={showpassword? "text": "password"}
+                type={showpassword ? "text" : "password"}
                 value={password}
-                onChange={(e)=> setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder='Enter Your Password'
-                className='border-1 border-[#C6C6C6] p-2  rounded-md' 
+                className='border-1 border-[#C6C6C6] p-2  rounded-md'
                 required
                 disabled={loading}
               />
-              <button 
-              type='button'
-              onClick={()=>setShowpassword(!showpassword)}
-              className='cursor-pointer absolute ml-[244px] mt-[13px]'
-              aria-label={showpassword? "Hide Password": "Show Password"}
+              <button
+                type='button'
+                onClick={() => setShowpassword(!showpassword)}
+                className='cursor-pointer absolute ml-[244px] mt-[13px]'
+                aria-label={showpassword ? "Hide Password" : "Show Password"}
               >
-                {showpassword? <BiHide />:<BiShow />}
+                {showpassword ? <BiHide /> : <BiShow />}
               </button>
-              
+
               
             </div>
 
+            <div className='flex justify-between items-center gap-7 py-2'>         
+                 
 
-            <div className='flex justify-between items-center gap-7 py-2'>
               <div className='flex items-center justify-center text-[#868686]'>
-              <input
-                type="checkbox"
-              />
-              <span>Remember Me</span>
+                <input
+                  type="checkbox"
+                />
+                <span>Remember Me</span>
               </div>
 
               <a href="/login" className="font-medium text-blue-600 hover:text-blue-500">
-                        Forgot Password?
-                    </a>
+                Forgot Password?
+              </a>
             </div>
             <div className='flex items-center justify-center bg-[#01239E] py-2 text-white rounded-md cursor-pointer my-2'>
-            <button className='cursor-pointer'>Sign In</button>
+              <button className='cursor-pointer'
+                onClick={handleSignin}
+              >Sign In</button>
             </div>
             <div className='flex justify-center'>
               <span className='border-t w-25 border-[#C6C6C6] my-3 mx-2'></span>

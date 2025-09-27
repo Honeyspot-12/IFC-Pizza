@@ -1,18 +1,24 @@
+"use client"
+
 import React from "react";
 import { RiMenu3Line } from "react-icons/ri";
 import { CiSearch } from "react-icons/ci";
 import { HiOutlinePhone } from "react-icons/hi";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import { useRouter } from "next/navigation";
 
 
 export default function Topbar() {
+  const Router=useRouter()
   return (
     <div className="flex ">
     <div className='p-5  py-1  bg-[#F0F0F0]  flex justify-between items-center border-b border-gray-300  w-full'>
 
       <div className="flex gap-2">
         <RiMenu3Line className=" text-black mt-[6px] cursor-pointer" />
-        <h3 className="font-bold mr-2 text-xl text-[#A85916]">IFC PIZZA</h3>
+        <button className="font-bold mr-2 text-xl text-[#A85916] cursor-pointer"
+        onClick={()=>Router.push('/post_table')}
+        >IFC PIZZA</button>
 
         <button className="border-1 border-[#A85916] bg-[#A85916] text-white rounded-sm px-2   text-xs cursor-pointer">New Order</button>
         <div className="flex items-center text-[#A85916]">

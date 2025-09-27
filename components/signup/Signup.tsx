@@ -6,8 +6,8 @@ import { BiShow } from "react-icons/bi";
 import { CgPassword } from 'react-icons/cg';
 import { BiHide } from "react-icons/bi";
 
-const Signin = () => {
-  const [name,setName]=useState('')
+const Signup = () => {
+  // const [name,setName]=useState('')
   const [password,setPassword]=useState('')
   const [error,setError]=useState('')
   const [loading,setLoading]=useState(false)
@@ -30,8 +30,8 @@ const Signin = () => {
       <section className='bg-black/50 fixed top-0 left-0 h-screen w-full
         text-black shadow-2xl flex flex-col items-center justify-center'>
 
-        <div className='flex bg-white gap-8 rounded-xl px-10 py-12 ' >
-          <div className=' flex bg-[#01239E1A] rounded-2xl  py-8'>
+        <div className='flex bg-white gap-8 rounded-xl px-10 py-12 h-auto ' >
+          <div className='  bg-[#01239E1A] rounded-2xl  py-8 hidden md:block '>
             <img
               src="/loginimg.png"
               alt="logo"
@@ -108,7 +108,7 @@ const Signin = () => {
             className='cursor-pointer'
             onClick={handleSignin}
             >
-                Sign In
+                Register
                 </button>
             </div>
 
@@ -132,4 +132,4 @@ const Signin = () => {
   )
 }
 
-export default Signin
+export default Signup

@@ -12,7 +12,8 @@ interface Ordertype{
 
 const Order : React.FC=()=> {
     const [active,setActive]=useState<string>("Dine In")
-    const { searchterm, setSearchterm } = useCart();
+    
+    const {searchterm,setSearchterm}=useCart();
 
     const types: Ordertype[] = [
         {name:"Dine In"},
@@ -29,6 +30,8 @@ const Order : React.FC=()=> {
                 <input
                     type="search"
                     placeholder="Search Item"
+                    // value={searchterm}
+                    // onChange={(e)=>setSearchterm(e.target.value)}
                     value={searchterm}
                     onChange={(e)=>setSearchterm(e.target.value)}
                     className="w-full pl-10 pr-3 py-2 rounded bg-white text-black placeholder-gray-500 focus:outline-none"

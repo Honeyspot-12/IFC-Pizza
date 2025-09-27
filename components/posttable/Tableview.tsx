@@ -170,6 +170,11 @@ const Tableview = () => {
 
     const [showMoveKOTPopup, setShowMoveKOTPopup] = useState<boolean>(false)
     const [showSettleSavePopup, setShowSettleSavePopup] = useState<boolean>(false)
+    // const [tableno,setTableno]=useState<{no:number} | null>(null)
+   
+
+
+    
 
     const Router = useRouter()
 
@@ -293,13 +298,15 @@ const Tableview = () => {
                 <h3 className='text-black ml-2 mt-4 font-bold'>GROUND FLOOR</h3>
             </div>
 
+
+
             <div className='grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 xl:grid-cols-11 gap-4 text-black mx-4 mt-6 mb-5 ' >
                 {gtable.map((num) => (
                     
                     <button
                         key={num}
                         className='border-1 border-[#A85916] border-dashed rounded-md text-[#A85916] bg-[#F7EFE8] p-[18px] py-[28px] grid justify-center items-center cursor-pointer'
-                        onClick={() => setShowSettleSavePopup(true)}
+                        onClick={() => Router.push(`/orderprocess?table=${num}`)}
                     >
                         <MdOutlineTableBar className='ml-5'/>
                         Table {num}
@@ -322,7 +329,7 @@ const Tableview = () => {
                 {stable.map((num) => (
                     <button key={num}
                         className='border-1 border-[#A85916] border-dashed rounded-md text-[#A85916] bg-[#F7EFE8] p-[18px] py-[28px] grid justify-center items-center cursor-pointer'
-                        onClick={() => setShowSettleSavePopup(true)}>
+                        onClick={() => Router.push(`/orderprocess?table=${num}`)}>
                         <MdOutlineTableBar className='ml-5' />
                         Table {num}</button>
                 ))}
@@ -336,4 +343,3 @@ const Tableview = () => {
 }
 
 export default Tableview
-

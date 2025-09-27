@@ -192,7 +192,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname,useSearchParams  } from "next/navigation";
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 
@@ -207,6 +207,9 @@ const Sidebar: React.FC = () => {
   const router = useRouter()
   const pathname = usePathname()
   const [isopen, setIsopen] = useState<Boolean>(false)
+
+   const searchParams = useSearchParams();
+  const tableNumber = searchParams.get('table');
 
   const categories: Category[] = [
     { name: "Beverages", slug: "beverages" },
@@ -232,7 +235,12 @@ const Sidebar: React.FC = () => {
               return (
                 <li key={cat.slug}>
                   <button
-                    onClick={() => router.push(`/orderprocess/${cat.slug}`)}
+                    // onClick={() => router.push(`/orderprocess/${cat.slug}`)}
+                    onClick={() => {
+                    const newUrl = `/orderprocess/${cat.slug}`;
+                    const urlWithTable = tableNumber ? `${newUrl}?table=${tableNumber}` : newUrl;
+                    router.push(urlWithTable);
+                  }}
                     className={`w-full text-left px-4 py-2 rounded font-medium transition cursor-pointer ${isActive
                       ? "text-[#994D1C] bg-white font-semibold"
                       : "hover:bg-[#A0522D]"
@@ -254,6 +262,10 @@ const Sidebar: React.FC = () => {
         </button>
         <span className="ml-2 font-semibold">Menu</span>
       </div>
+
+
+
+      
 
       {/* Mobile Sidebar Overlay */}
       {isopen && (

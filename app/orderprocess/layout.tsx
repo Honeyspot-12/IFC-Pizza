@@ -31,6 +31,7 @@ const Layout = ({
         </div>
       </div>
       <div className='md:hidden'>
+        
       <Viewcart/>
       </div>
       {/* </CartProvider> */}

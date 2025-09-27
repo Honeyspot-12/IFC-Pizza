@@ -1,32 +1,51 @@
 // "use client"
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import { useCart } from "@/context/CartContext";
 import { IoMdWine } from "react-icons/io";
+import { MdTableBar } from "react-icons/md";
+
 import { IoPersonOutline } from "react-icons/io5";
 import { GrGroup } from "react-icons/gr";
 import { LuNotebookPen } from "react-icons/lu";
 import { RxCross2 } from "react-icons/rx";
 import { MdOutlineKeyboardArrowUp, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { TbRectangleFilled, TbReload } from "react-icons/tb";
+import { useRouter, useSearchParams } from 'next/navigation';
+import Comments from '../comments/Comments';
+import Specialnote from '../specialnote/Specialnote';
+import Cart from '../cart/Cart';
+
 
 const Cartsection: React.FC = () => {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, total, increase, decrease } = useCart();
   const [showform, setShowform] = useState<boolean>(false)
   const [scrollup, setScrollup] = useState<boolean>(false)
+  const [showcomments,setShowcomments]=useState<boolean>(false)
+  const [showspecialnote,setShowspecialnote]=useState<boolean>(false)
+  const [selectedItem,setSelectedItem]=useState <{name:string;size:string} | null>(null)
+  
 
-  console.log("cart", cart)
+  
+  const searchParams=useSearchParams();
+  const tablenumber=searchParams.get('table')
+  const Router=useRouter();
+  // console.log("cart", cart)
 
-  const { total, increase, decrease } = useCart()
+  const handleKOT=()=>{
+    Router.push('/post_table')
+  }
+
+  
   return (
     <>
       <div className='hidden md:block'>
         <div className=" w-auto bg-white h-screen border-l-2 border-[#A5A5A5] flex flex-col text-black">
           <div className='flex bg-[#f8f8f8] border-b border-[#A5A5A5] ' >
 
-            <div className='grid border-r-2 border-r-[#A5A5A5] items-center justify-center p-2 '>
-              <div className='mr-3 ml-3'>
-                <IoMdWine />
-                <span className='font-medium'>10</span>
+            <div className=' border-r-2 border-r-[#A5A5A5] items-center justify-center p-2 '>
+              <div className=' pr-3 pl-3 flex flex-col items-center justify-center'>
+                <MdTableBar className='' />
+                <span className='font-medium '>{tablenumber || 'N/A'}</span>
               </div>
 
             </div>
@@ -61,7 +80,14 @@ const Cartsection: React.FC = () => {
             <div className='grid border-r-2 border-r-[#A5A5A5]  items-center justify-center p-2'>
 
               <div className='mr-3 ml-3'>
+                <button className='cursor-pointer'
+                onClick={()=>setShowcomments(true)}
+                >
                 <LuNotebookPen size={20} />
+                </button>
+                {showcomments && (
+                  <Comments setShowcomments={setShowcomments}/>
+                )}
               </div>
 
             </div>
@@ -122,7 +148,23 @@ const Cartsection: React.FC = () => {
                     >
                       <RxCross2 />
                     </button>
-                    <span className='md:border-b-2 '>{item.name} ({item.size})</span>
+
+
+                    <button className='md:border-b-2 cursor-pointer'
+                    onClick={()=>{
+                      setSelectedItem(item);
+                      setShowspecialnote(true)
+                    
+                    }}
+                    >{item.name} ({item.size})</button>
+                    {showspecialnote && selectedItem &&(
+                      <Specialnote setshowspecial={setShowspecialnote} 
+                      item={selectedItem}
+                      />
+
+                    )}
+
+
                   </div>
 
 
@@ -220,7 +262,13 @@ const Cartsection: React.FC = () => {
               <div className='flex items-center justify-between ' key={method}>
                 <label key={method} className="flex items-center gap-2 text-sm">
                   <div className=' flex items-center border-1 border-white rounded-full  px-1 py-1 cursor-pointer'>
-                    <input type="radio" name="payment" className="appearance-none  p-1 rounded-full checked:bg-white cursor-pointer" />
+                    <input type="radio" name="payment" className="appearance-none  p-1 rounded-full checked:bg-white cursor-pointer" 
+                    onClick={()=>{
+                      if(method==="Part"){
+                        Router.push('/payment_part')
+                      }
+                    }}
+                    />
                   </div>
                   {method}
                 </label>
@@ -253,7 +301,10 @@ const Cartsection: React.FC = () => {
             <button className="flex-1 bg-[#8B4513] text-white py-2 px-2 rounded cursor-pointer whitespace-nowrap">
               Print & eBill
             </button>
-            <button className="flex-1 bg-black text-white py-2 rounded cursor-pointer whitespace-nowrap">
+            <button className="flex-1 bg-black text-white py-2 rounded cursor-pointer whitespace-nowrap"
+            onClick={handleKOT}
+
+            >
               KOT
             </button>
             <button className="flex-1 bg-black text-white py-2 px-2 rounded cursor-pointer whitespace-nowrap">
@@ -266,6 +317,9 @@ const Cartsection: React.FC = () => {
 
         </div>
       </div>
+
+
+      {/* <Cart /> */}
     </>
   )
 }

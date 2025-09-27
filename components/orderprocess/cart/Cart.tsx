@@ -9,14 +9,27 @@ import { LuNotebookPen } from "react-icons/lu";
 import { RxCross2 } from "react-icons/rx";
 import { MdOutlineKeyboardArrowUp, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { TbRectangleFilled, TbReload } from "react-icons/tb";
+import { useRouter, useSearchParams } from 'next/navigation';
+import Comments from '../comments/Comments';
+import Specialnote from '../specialnote/Specialnote';
+
+
 
 const Cart:React.FC = () => {
     const { cart, removeFromCart } = useCart();
     const [showform, setShowform] = useState<boolean>(false)
     const [scrollup, setScrollup] = useState<boolean>(false)
+    const [showcomments,setShowcomments]=useState<boolean>(false)
+    const [showspecialnote,setShowspecialnote]=useState<boolean>(false)
+    const [selectedItem,setSelectedItem]=useState <{name:string;size:string} | null>(null)
 
     console.log("cart", cart)
     const { total, increase, decrease } = useCart()
+
+    const searchParams=useSearchParams();
+    const tablenumber=searchParams.get('table')
+    
+    const Router=useRouter()
     return (<>
     {/* This is the mobile cart view */}
     <div className="fixed bottom-0 left-0 right-0 z-10 md:hidden">
@@ -26,7 +39,7 @@ const Cart:React.FC = () => {
                 <div className='grid border-r-2 border-r-[#A5A5A5] items-center justify-center p-2 '>
                     <div className='mr-3 ml-3'>
                         <IoMdWine />
-                        <span className='font-medium'>10</span>
+                        <span className='font-medium'>{tablenumber || 'N/A'}</span>
                     </div>
 
                 </div>
@@ -61,7 +74,14 @@ const Cart:React.FC = () => {
                 <div className='grid border-r-2 border-r-[#A5A5A5]  items-center justify-center p-2'>
 
                     <div className='mr-3 ml-3'>
+                        <button className='cursor-pointer'
+                        onClick={()=>setShowcomments(true)}
+                        >
                         <LuNotebookPen size={20} />
+                        </button>
+                        {showcomments && (
+                          <Comments setShowcomments={setShowcomments}/>
+                        )}
                     </div>
 
                 </div>
@@ -122,7 +142,19 @@ const Cart:React.FC = () => {
                                 >
                                     <RxCross2 />
                                 </button>
-                                <span className='md:border-b-2 '>{item.name} ({item.size})</span>
+                                <button className='md:border-b-2 cursor-pointer'
+                    onClick={()=>{
+                      setSelectedItem(item);
+                      setShowspecialnote(true)
+                    
+                    }}
+                    >{item.name} ({item.size})</button>
+                    {showspecialnote && selectedItem &&(
+                      <Specialnote setshowspecial={setShowspecialnote} 
+                      item={selectedItem}
+                      />
+
+                    )}
                             </div>
 
 
@@ -220,7 +252,13 @@ const Cart:React.FC = () => {
                     <div className='flex items-center justify-between ' key={method}>
                         <label key={method} className="flex items-center gap-2 text-sm">
                             <div className=' flex items-center border-1 border-white rounded-full  px-1 py-1 cursor-pointer'>
-                                <input type="radio" name="payment" className="appearance-none  p-1 rounded-full checked:bg-white cursor-pointer" />
+                                <input type="radio" name="payment" className="appearance-none  p-1 rounded-full checked:bg-white cursor-pointer" 
+                                onClick={()=>{
+                      if(method==="Part"){
+                        Router.push('/payment_part')
+                      }
+                    }}
+                                />
                             </div>
                             {method}
                         </label>

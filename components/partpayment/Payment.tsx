@@ -1,4 +1,5 @@
 "use client"
+import { useCart } from '@/context/CartContext';
 import React, { useState } from 'react'
 import { HiOutlineNewspaper } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
@@ -13,12 +14,14 @@ interface Category {
 
 const Payment = () => {
     const [active, setActive] = useState<string>("Card")
-   
+
     const categories: Category[] = [
         { name: "Card" },
         { name: "Other" },
         { name: "Due Payment" }
     ]
+
+    const { total } = useCart();
 
     return (
         <div className='bg-white pb-6'>
@@ -33,13 +36,13 @@ const Payment = () => {
                 </div>
 
                 <div>
-                    <span className='text-black font-medium'>Payable Amount : ₹ 256</span>
+                    <span className='text-black font-medium'>Payable Amount : ₹ {total}</span>
                 </div>
             </div>
 
             <div className='border-1 border-[#C9C9C9] mx-3 pb-14'>
                 <div className='bg-[#F0F0F0] flex flex-wrap border-b border-[#C9C9C9]'>
-                    
+
 
                     {categories.map((i) => (
                         <button
@@ -78,36 +81,35 @@ const Payment = () => {
                     </div>
 
                     <div className='mx-3'>
-                        <span>₹ 236</span>
+                        <span className='font-bold'>₹{total}</span>
                     </div>
                 </div>
 
                 <div className='flex justify-between pt-2  border-b border-[#C9C9C9] pb-2'>
                     <div className='flex gap-2 mx-3 items-center '>
                         <button className='text-white border-1 border-[#994D1C] px-1 py-1 rounded-full bg-[#994D1C] cursor-pointer '
-                            // onClick={() => removeFromCart(i.name)}
+                        // onClick={() => removeFromCart(i.name)}
                         >
                             <RxCross2 />
-                            </button>
+                        </button>
                         <span className=''>Paid via Card</span>
                     </div>
 
                     <div className='mx-3'>
-                        <span>₹ 136</span>
+                        <span>₹{total}</span>
                     </div>
                 </div>
 
-                <div className='flex justify-between pt-2   pb-2'>
+                {/* <div className='flex justify-between pt-2   pb-2'>
                     <div className='flex gap-2 mx-11 items-center '>
-                        {/* <HiOutlineNewspaper className='text-black w-6 h-6'/> */}
-                        
-                            <span className=''>Paid via Card</span>
+
+                        <span className=''>Paid via Card</span>
                     </div>
 
                     <div className='mx-3'>
                         <span>₹ 100</span>
                     </div>
-                </div>
+                </div> */}
             </div>
 
             <div className='flex gap-2 justify-center sm:justify-end text-white mt-3 mx-3'>
@@ -115,7 +117,7 @@ const Payment = () => {
                 <button className='bg-[#A85916] py-1 px-2 rounded cursor-pointer'>New Order</button>
                 <button className='bg-[#A85916] py-1 px-3 rounded cursor-pointer'>Print</button>
                 <button className='bg-[#A85916] py-1 px-3 rounded cursor-pointer'>EBill</button>
-                                 
+
             </div>
 
         </div>
