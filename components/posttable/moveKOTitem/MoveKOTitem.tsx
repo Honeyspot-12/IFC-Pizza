@@ -118,7 +118,7 @@ const MoveKOTitem = ({
     ];
 
     return (
-        <div className="bg-black/50 fixed top-0 left-0 flex items-center justify-center w-full h-screen text-black p-4">
+        <div className="bg-black/50 fixed top-0 left-0 z-50 flex items-center justify-center w-full h-screen text-black p-4">
             {/* Popup Box */}
             <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] bg-white flex flex-col gap-3 rounded-lg shadow-lg max-h-[80vh] overflow-y-auto">
                 {/* Header */}

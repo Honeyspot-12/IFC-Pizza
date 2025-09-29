@@ -2,13 +2,13 @@ import React from 'react'
 import { RxCross1 } from "react-icons/rx";
 
 
-const SettleSave = ({setshowprop}:{setshowprop:React.Dispatch<React.SetStateAction<boolean>>}) => {
+const SettleSave = () => {
   return (
     <div className='bg-black/50 fixed left-0 top-0 flex flex-col items-center justify-center w-full h-screen text-black'>
       <div className='bg-white  h-auto object-cover rounded pb-3'>
       <span className='flex p-2 font-medium items-center justify-between border-b border-[#A5A5A5]'>Settlt & Save - Table 3 <RxCross1 
       className='cursor-pointer'
-      onClick={()=>setshowprop(false)}
+      // onClick={()=>setshowprop(false)}
       /></span>
 
       <div className='flex-1 px-4 py-2'>
@@ -53,7 +53,7 @@ const SettleSave = ({setshowprop}:{setshowprop:React.Dispatch<React.SetStateActi
 
       <div className='pt-2 flex items-center justify-end gap-4 px-3'>
         <button className='font-medium text-[#363636] cursor-pointer'
-        onClick={()=>setshowprop(false)}
+        // onClick={()=>setshowprop(false)}
         >Cancel</button>
         <button className=' bg-[#994D1C] px-2 py-1 rounded text-white cursor-pointer'>Settle & Save</button>
       </div>
