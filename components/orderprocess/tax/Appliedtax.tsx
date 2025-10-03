@@ -35,16 +35,14 @@ const Appliedtax: React.FC = () => {
         </div>
 
         <div className='border-1 rounded  mx-7 mt-2  '>
-          <div className='flex   items-center justify-between pt-3 pb-3  px-15 text-white bg-[#303030]'>
+          <div className='flex   items-center justify-between pt-3 pb-3  px-15 pr-29 text-white bg-[#303030]'>
             <span>TAX</span>
             <span>AMOUNT</span>
           </div>
 
 
-
-
           {taxes.map((t) => (
-            <div key={t.name} className="grid grid-cols-3 items-center  px-4 py-2">
+            <div key={t.name} className="grid grid-cols-3 items-center justify-between px-4 py-2">
               <div  className="flex items-center gap-2">
                 <button 
                 // onClick={()=>remove(t.name)}
@@ -53,23 +51,13 @@ const Appliedtax: React.FC = () => {
                 </button>
                 <span className="font-medium">{t.name}</span>
               </div>
-              <div className="text-center font-medium">{t.per}</div>
-              <div className="text-center font-medium">{t.amt}</div>
+
+              <div className='flex justify-end gap-5'>
+              <span className=" font-medium">{t.per}%</span>
+              <span className=" font-medium">{t.amt}</span>
+              </div>
             </div>
           ))}
-
-
-          {/* <div className="grid grid-cols-3 items-center border-b px-4 py-2">
-            <div className="flex items-center gap-2">
-              <button className="border-1 border-[#D9D9D9] py-3 px-1  h-4  flex items-center justify-center rounded-full bg-[#D9D9D9] cursor-pointer">
-                <MdClose className="text-[#303030]" size={16} />
-              </button>
-              <span className="font-medium">820@SGST</span>
-            </div>
-            <div className="text-center font-medium">2.5%</div>
-            <div className="text-center font-medium">20.5</div>
-          </div> */}
-
 
         </div>
 

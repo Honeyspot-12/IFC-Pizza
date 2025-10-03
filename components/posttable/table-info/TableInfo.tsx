@@ -13,7 +13,7 @@ const TableInfo = () => {
     <div className="xl:flex gap-3 grid grid-cols-2 md:grid-cols-1 justify-center md:justify-start items-center">
         <div className="relative">
             <FaPlus className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer text-white" />
-            <button className="border border-[#A85916] flex items-center pl-7 pr-4 py-2 bg-[#A85916] text-white rounded-sm cursor-pointer text-sm md:text-base">
+            <button className="border border-[#A85916] flex items-center pl-7 pr-4 py-2 bg-[#A85916] text-white rounded-sm cursor-pointer text-sm">
                 Table Reservation
             </button>
         </div>
@@ -21,7 +21,7 @@ const TableInfo = () => {
 
         <div className="relative">
             <FaPlus className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer text-white" />
-            <button className="border border-[#A85916] flex items-center pl-7 pr-4 py-2 bg-[#A85916] text-white rounded-sm cursor-pointer text-sm md:text-base">
+            <button className="border border-[#A85916] flex items-center pl-7 pr-4 py-2 bg-[#A85916] text-white rounded-sm cursor-pointer text-sm ">
                 Contactless
             </button>
         </div>
@@ -29,7 +29,7 @@ const TableInfo = () => {
 
     {/* Right Info */}
     <div className="w-full md:w-auto">
-        <ul className="xl:flex  grid grid-cols-3 justify-center md:justify-end gap-3 mt-2 md:mt-0 text-black  text-[10px] md:text-base">
+        <ul className="xl:flex  grid grid-cols-3 justify-center md:justify-end gap-3 mt-2 md:mt-0 text-black text-sm font-medium">
             <li className="flex items-center gap-2 border border-gray-200 bg-gray-200 rounded-md px-1 py-1">
                 <span className='border-1 border-white bg-white rounded-full p-2 '></span>
                 <button

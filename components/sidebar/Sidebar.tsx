@@ -221,14 +221,18 @@ const Sidebar: React.FC = () => {
     { name: "Combo", slug: "combo" },
     { name: "Burger Meals", slug: "burger-meals" },
     { name: "Delicious Sides", slug: "delicious-sides" },
+    { name: "Triple Treat Meal", slug: "triple-treat-meal"},
+    { name: "Special Pizza Magic Mania", slug: "special-pizza-magic-mania"},
+    { name: "Double Pizza Magic Mania", slug: "double-pizza-magic-mania"},
+    { name: "Single Pizza Magic Mania", slug: "single-pizza-magic-mania"}
   ];
 
   return (
     <>
       {/* Desktop Sidebar (left) */}
-      <div className="hidden md:block w-56 h-screen flex-shrink-0 p-4 bg-white">
+      <div className="hidden md:block w-56 h-[85vh] flex-shrink-0 p-4 bg-white ">
 
-        <div className="h-full bg-[#994D1C] text-white p-2 rounded-lg overflow-y-auto">
+        <div className="h-full bg-[#994D1C] text-[#FFFFFF99] text-sm p-2 rounded-lg overflow-y-auto no-scrollbar">
           <ul>
             {categories.map((cat) => {
               const isActive = pathname.includes(cat.slug)
@@ -241,7 +245,7 @@ const Sidebar: React.FC = () => {
                     const urlWithTable = tableNumber ? `${newUrl}?table=${tableNumber}` : newUrl;
                     router.push(urlWithTable);
                   }}
-                    className={`w-full text-left px-4 py-2 rounded font-medium transition cursor-pointer ${isActive
+                    className={`w-full text-left px-4 py-4 rounded font-medium transition cursor-pointer ${isActive
                       ? "text-[#994D1C] bg-white font-semibold"
                       : "hover:bg-[#A0522D]"
                       }`}
@@ -270,7 +274,7 @@ const Sidebar: React.FC = () => {
       {/* Mobile Sidebar Overlay */}
       {isopen && (
         <div className="fixed inset-0 z-50 bg-black/50 bg-opacity-50 md:hidden">
-          <div className="absolute left-0 top-0 w-64 h-screen bg-[#994D1C] text-white p-4 shadow-lg transform transition-transform">
+          <div className="absolute left-0 top-0 w-64 h-screen bg-[#994D1C] text-white p-4 shadow-lg transform transition-transform overflow-y-auto no-scrollbar">
             {/* Close Button */}
             <div className="flex justify-between items-center mb-4">
               <h2 className="font-bold">Categories</h2>

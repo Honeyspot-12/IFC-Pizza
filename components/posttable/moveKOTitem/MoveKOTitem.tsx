@@ -134,14 +134,14 @@ const MoveKOTitem = ({
 
                 {/* Tabs */}
                 <div className="border border-[#A5A5A5] mx-3 sm:mx-4 pb-6 rounded">
-                    <div className="flex flex-wrap border-b border-[#A5A5A5]">
+                    <div className="flex flex-wrap border-b border-[#A5A5A5] ">
                         {type.map((cat) => (
                             <button
                                 key={cat.name}
                                 onClick={() => setActive(cat.name)}
-                                className={`border-r border-[#A5A5A5] py-2 px-3 sm:px-4 text-sm sm:text-base cursor-pointer ${active === cat.name
-                                        ? "bg-[#994D1C] text-white"
-                                        : "text-black bg-transparent"
+                                className={`border-r border-[#A5A5A5] py-2 px-3 sm:px-7  text-sm cursor-pointer ${active === cat.name
+                                        ? "bg-[#994D1C] text-white "
+                                        : "text-[#363636] bg-transparent"
                                     }`}
                             >
                                 {cat.name}
@@ -168,7 +168,7 @@ const MoveKOTitem = ({
                 {/* Footer */}
                 <div className="flex flex-col lg:flex-row gap-4 px-3 sm:px-6 py-4 items-center justify-center lg:justify-between border-t border-[#A5A5A5]">
                     <div className="flex items-center w-full lg:w-auto">
-                        <span className="whitespace-nowrap">Table No.</span>
+                        <span className="whitespace-nowrap text-[#363636]">Table No.</span>
                         <input
                             type="text"
                             className="flex-1 lg:flex-none ml-3 border p-2 rounded border-[#363636] text-[#808080] placeholder:text-[#808080]"

@@ -18,21 +18,29 @@ const Layout = ({
 
   return (
     <>
-    {/* <CartProvider> */}
+      {/* <CartProvider> */}
       <Topbar />
-      <Order />
+
+
       <div className=''>
-        <div className="flex h-screen bg-white flex-col md:flex-row">
+
+        <Order />
+        <div className='md:grid grid-cols-12'>
+        <div className="flex  bg-white flex-col md:flex-row col-span-8">
           <Sidebar />
-          <div className="flex-1 h-screen bg-white ">
+          <div className="flex-1 bg-white ">
             {children}
           </div>
-          <Cartsection />
+
+
+
+        </div>
+        <Cartsection />
         </div>
       </div>
-      <div className='md:hidden'>
-        
-      <Viewcart/>
+      <div className='lg:hidden'>
+
+        <Viewcart />
       </div>
       {/* </CartProvider> */}
     </>
@@ -41,3 +49,8 @@ const Layout = ({
 };
 
 export default Layout;
+
+
+
+
+

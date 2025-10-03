@@ -1274,4 +1274,110 @@ export const items: Item[] = [
         ],
         toppings: []
     },
+    {
+        name: "Veg",
+        shortCode: "V33",
+        variations: [
+            { size: "Small", price: 199 },
+            { size: "medium", price: 299 },
+            { size: "Large", price: 399 },
+        ],
+        toppings: [
+            { name: "Cheese", price: 30 },
+            { name: "Corn", price: 30 },
+            { name: "Yellow Pepper", price: 30 },
+            { name: "Red Peppper", price: 30 },
+            { name: "Jalapenos", price: 30 },
+            { name: "Black Olives", price: 30 },
+            { name: "Mushroom", price: 30 },
+            { name: "Tomato", price: 30 },
+            { name: "Capsicum", price: 30 },
+            { name: "Onion", price: 30 },
+        ]
+    },
+    {
+        name: "Non-Veg",
+        shortCode: "NV34",
+        variations: [
+            { size: "Small", price: 199 },
+            { size: "medium", price: 299 },
+            { size: "Large", price: 399 },
+        ],
+        toppings: [
+            { name: "Cheese", price: 30 },
+            { name: "Corn", price: 30 },
+            { name: "Yellow Pepper", price: 30 },
+            { name: "Red Peppper", price: 30 },
+            { name: "Jalapenos", price: 30 },
+            { name: "Black Olives", price: 30 },
+            { name: "Mushroom", price: 30 },
+            { name: "Tomato", price: 30 },
+            { name: "Capsicum", price: 30 },
+            { name: "Onion", price: 30 },
+        ]
+    },
+    {
+        name: "Special Pizza Magic Mania",
+        shortCode: "SPMM35",
+        variations: [
+            { size: "Small", price: 199 },
+            { size: "medium", price: 299 },
+            { size: "Large", price: 399 },
+        ],
+        toppings: [
+            { name: "Cheese", price: 30 },
+            { name: "Corn", price: 30 },
+            { name: "Yellow Pepper", price: 30 },
+            { name: "Red Peppper", price: 30 },
+            { name: "Jalapenos", price: 30 },
+            { name: "Black Olives", price: 30 },
+            { name: "Mushroom", price: 30 },
+            { name: "Tomato", price: 30 },
+            { name: "Capsicum", price: 30 },
+            { name: "Onion", price: 30 },
+        ]
+    },
+    {
+        name: "Double Pizza Magic Mania",
+        shortCode: "DPMM36",
+        variations: [
+            { size: "Small", price: 199 },
+            { size: "medium", price: 299 },
+            { size: "Large", price: 399 },
+        ],
+        toppings: [
+            { name: "Cheese", price: 30 },
+            { name: "Corn", price: 30 },
+            { name: "Yellow Pepper", price: 30 },
+            { name: "Red Peppper", price: 30 },
+            { name: "Jalapenos", price: 30 },
+            { name: "Black Olives", price: 30 },
+            { name: "Mushroom", price: 30 },
+            { name: "Tomato", price: 30 },
+            { name: "Capsicum", price: 30 },
+            { name: "Onion", price: 30 },
+        ]
+    },
+    {
+        name: "Single Pizza Magic Mania",
+        shortCode: "SPMM37",
+        variations: [
+            { size: "Small", price: 199 },
+            { size: "medium", price: 299 },
+            { size: "Large", price: 399 },
+        ],
+        toppings: [
+            { name: "Cheese", price: 30 },
+            { name: "Corn", price: 30 },
+            { name: "Yellow Pepper", price: 30 },
+            { name: "Red Peppper", price: 30 },
+            { name: "Jalapenos", price: 30 },
+            { name: "Black Olives", price: 30 },
+            { name: "Mushroom", price: 30 },
+            { name: "Tomato", price: 30 },
+            { name: "Capsicum", price: 30 },
+            { name: "Onion", price: 30 },
+        ]
+    },
+   
 ];

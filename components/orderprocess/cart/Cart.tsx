@@ -32,7 +32,7 @@ const Cart:React.FC = () => {
     const Router=useRouter()
     return (<>
     {/* This is the mobile cart view */}
-    <div className="fixed bottom-0 left-0 right-0 z-10 md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-10 lg:hidden ">
         <div className=" w-auto bg-white h-screen border-l-2 border-[#A5A5A5] flex flex-col text-black">
             <div className='flex bg-[#f8f8f8] border-b border-[#A5A5A5] ' >
 
