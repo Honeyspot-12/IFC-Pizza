@@ -99,12 +99,12 @@ const Itemlisting = () => {
                 <span className="text-center">
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" defaultChecked className="sr-only peer" />
-                    <div className="relative w-10 h-5 bg-gray-300 peer-checked:bg-[#994D1C] rounded-full 
-                after:content-[''] after:absolute after:top-0.5 after:left-[2px] 
+                    <div className="relative w-13 h-5 bg-[#E9E9E9] peer-checked:bg-[#994D1C] rounded-full 
+                after:content-[''] after:absolute after:top-0.5 after:left-[5px] 
                 after:bg-[#994D1C] peer-checked:after:bg-white 
                 after:border-gray-300 after:border after:rounded-full 
                 after:h-4 after:w-4 after:transition-all after:translate-x-0 
-                peer-checked:after:translate-x-5">
+                peer-checked:after:translate-x-7">
                     </div>
 
                   </label>
