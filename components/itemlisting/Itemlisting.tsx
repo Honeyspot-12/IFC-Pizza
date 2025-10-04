@@ -7,6 +7,8 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { IoMdArrowDropright } from "react-icons/io";
 import Checkvariation from "./checkvariation/Checkvariation";
 import Searchbar from "./listsearchbar/Searchbar";
+import { BsCheckLg } from "react-icons/bs";
+import { FaCheck } from "react-icons/fa";
 
 
 const Itemlisting = () => {
@@ -20,7 +22,7 @@ const Itemlisting = () => {
     (item) =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase()) && item.shortCode.toLowerCase().includes(shortcode.toLowerCase())
   ).sort((a, b) => {
-    if (sortBy === "name") {
+    if (sortBy === "name"){
       return a.name.localeCompare(b.name)
     } else {
       return a.shortCode.localeCompare(b.shortCode)
@@ -45,7 +47,7 @@ const Itemlisting = () => {
         {/* Wrap header + rows inside a min-width container */}
         <div className="min-w-[900px]">
           {/* Header */}
-          <div className="grid grid-cols-12 bg-[#994D1C] text-white px-4 py-3 rounded-t  text-[13px]">
+          <div className="grid grid-cols-12  bg-[#994D1C] text-white px-4 py-3 rounded-t  text-[13px]">
             <span className="text-left ">S.No.</span>
             <span className="text-left col-span-3">Name</span>
             <span className="text-center ">Short Code</span>
@@ -85,15 +87,20 @@ const Itemlisting = () => {
                 </button>
 
                 {/* Favourite Checkbox */}
-                <span className="text-center flex justify-center items-center pr-10">
-                  <input
+                <div className="text-center flex justify-center items-center pr-10">
+                  {/* <input
                     type="checkbox"
                     className="w-4 h-4 cursor-pointer appearance-none border border-[#A5A5A5] rounded-sm 
              checked:bg-[#363636] checked:border-black 
              relative
              before:content-['✓'] before:absolute before:text-white before:text-[12px] before:font-bold before:opacity-0 checked:before:opacity-100 items-center flex justify-center"
-                  />
-                </span>
+                  /> */}
+                  <label className="relative w-4 h-4 cursor-pointer">
+                    <input type="checkbox" className="sr-only peer" />
+                    <span className="w-4 h-4 absolute top-0 left-0 border border-[#A5A5A5] rounded-sm peer-checked:bg-[#363636] peer-checked:border-black"></span>
+                    <FaCheck className="w-3 h-2.5 absolute top-1 left-0.5 text-white opacity-0 peer-checked:opacity-100" />
+                  </label>
+                </div>
 
                 {/* Stock Toggle */}
                 <span className="text-center">

@@ -139,7 +139,7 @@ const MoveKOTitem = ({
                             <button
                                 key={cat.name}
                                 onClick={() => setActive(cat.name)}
-                                className={`border-r border-[#A5A5A5] py-2 px-3 sm:px-7  text-sm cursor-pointer ${active === cat.name
+                                className={`border-r border-[#A5A5A5] py-1.5 px-3 sm:px-7  text-[13px] cursor-pointer ${active === cat.name
                                         ? "bg-[#994D1C] text-white "
                                         : "text-[#363636] bg-transparent"
                                     }`}
@@ -177,12 +177,12 @@ const MoveKOTitem = ({
 
                     <div className="flex gap-3 w-full lg:w-auto justify-center lg:justify-end">
                         <button
-                            className="border p-2 px-4 font-medium rounded border-[#363636] cursor-pointer w-full sm:w-auto"
+                            className="border py-1.5 px-4 font-medium rounded border-[#363636] cursor-pointer w-full sm:w-auto"
                             onClick={() => setShowpopup(false)}
                         >
                             Cancel
                         </button>
-                        <button className="bg-[#994D1C] p-2 px-6 font-medium rounded text-white cursor-pointer w-full sm:w-auto">
+                        <button className="bg-[#994D1C]  px-6 font-medium rounded text-white cursor-pointer w-full sm:w-auto">
                             Move
                         </button>
                     </div>

@@ -19,7 +19,7 @@ const TableGrid: React.FC<TableGridProps> = ({ tables, table3, table4, floor }) 
         <div className='font-medium'>
             <div className='flex '>
                 <span className='border-3 border-[#A85916] mt-5 mb-1 ml-4'></span>
-                <h3 className='text-black ml-2 mt-4 font-medium'>{floor}</h3>
+                <h3 className='text-black ml-2 mt-4 font-medium text-[15px]'>{floor}</h3>
             </div>
 
             <div className='grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 xl:grid-cols-11 gap-4 text-black mx-4 mt-6 mb-5 ' >
@@ -65,10 +65,13 @@ const TableGrid: React.FC<TableGridProps> = ({ tables, table3, table4, floor }) 
                             )
                             :
                             (
-                                <>
-                                    <MdOutlineTableBar className="ml-5" />
+                                <div className='flex flex-col items-center'>
+                                    {/* <MdOutlineTableBar className="ml-5" /> */}
+                                    <img src="/table.svg" alt=""  
+                                    className='w-5 h-5'
+                                    />
                                     <span>Table {num}</span>
-                                </>
+                                </div>
                             )}
                     </button>
                 ))}

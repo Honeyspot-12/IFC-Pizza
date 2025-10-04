@@ -21,7 +21,7 @@ const Searchbar: React.FC<SearchbarProps> = ({ searchTerm, onSearchChange,shortc
 
     return (
         <div className='border-1 border-[#A5A5A5] px-3 mx-6 mt-6 rounded'>
-            <div className='py-5 grid grid-cols-10 flex-wrap gap-8 items-center justify-between'>
+            <div className='py-5 flex flex-wrap xl:grid grid-cols-10  gap-8 items-center justify-between'>
                 <div className='flex items-center gap-2 flex-grow col-span-3'>
                     <span className='text-[#363636] text-sm font-medium'>Name:</span>
                     <input type="text" className='border-1 border-[#A5A5A5] rounded p-1 w-[70%] text-black'
@@ -43,13 +43,13 @@ const Searchbar: React.FC<SearchbarProps> = ({ searchTerm, onSearchChange,shortc
                 <div className='flex items-center gap-2 flex-grow '>
                     <span className='text-[#363636] text-sm font-medium whitespace-nowrap'>Sort By:</span>
                     <select 
-                        name="Name" 
+                        name="" 
                         id="" 
-                        className='border-1 border-[#A5A5A5] rounded p-1 text-black w-[75%] cursor-pointer'
+                        className='border-1 border-[#A5A5A5] rounded p-1 text-black w-[75%] cursor-pointer text-sm  '
                         value={sortBy}
                         onChange={(e) => onSortchange(e.target.value)}>
-                        <option value="name">Name</option>
-                        <option value="code">Short Code</option>
+                        <option value="name" className='text-sm'>Name</option>
+                        <option value="code" className='text-sm'>Short Code</option>
 
                     </select>
                 </div>

@@ -92,7 +92,7 @@ export default function Topbar() {
         >IFC Pizza</button>
         
 
-        <button className="border-1 border-[#994D1C] bg-[#994D1C]  text-white rounded-sm px-3 py-1.5  text-xs cursor-pointer">New Order</button>
+        <button className="border-1 border-[#994D1C] bg-[#A85916]  text-white rounded-sm px-3 py-1.5  text-xs cursor-pointer">New Order</button>
         <div className="flex items-center text-[#994D1C]">
           <IoSearchSharp   className="absolute ml-1" />
           <input
@@ -108,7 +108,7 @@ export default function Topbar() {
      
     </div>
 
-      <div className="hidden md:flex flex-shrink-0 items-center gap-3 bg-[#994D1C] px-3 py-1 text-white md:px-5">
+      <div className="hidden md:flex flex-shrink-0 items-center gap-3 bg-[#A85916] px-3 py-1 text-white md:px-5">
         <div className="border p-1 bg-white rounded-full flex items-center">
         <BsFillTelephoneFill className="text-[#994D1C] " />
         </div>

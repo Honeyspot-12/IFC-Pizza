@@ -176,12 +176,12 @@ const Additem = () => {
 
     return (
         <>
-            <div className=' bg-white w-full h-full'>
+            <div className=' bg-white w-full h-full text-sm'>
                 <div className=' flex flex-wrap justify-between border-b shadow-sm w-full py-4  pr-5'>
                     <div className=''>
-                        <h5 className='font-bold ml-5 text-black mt-[4px]'>Add Item</h5>
+                        <h5 className='font-bold ml-5 text-black mt-[4px] '>Add Item</h5>
                     </div>
-                    <div className='border-1 border-[#A85916] text-[#A85916] px-5 py-1  rounded-md flex gap-2 justify-center items-center cursor-pointer '>
+                    <div className='border-1 border-[#A85916] text-[#A85916] pr-5 pl-4 py-1.5  rounded-md flex gap-2 justify-center items-center cursor-pointer '>
                         <LuArrowLeft className='' />
                         <button
                             onClick={handleBack}
@@ -190,7 +190,7 @@ const Additem = () => {
                 </div>
 
 
-                <div className="border border-[#A5A5A5] shadow-md text-[#666666] rounded-[10px] mx-9 p-6 my-9">
+                <div className="border border-[#A5A5A5] shadow-md text-[#666666] rounded-[10px] mx-9 p-6 my-9 pb-20 text-[12px]">
                     <div className="flex flex-col lg:flex-row gap-10">
                         {/* LEFT SIDE (Inputs) */}
                         <div className="flex-2">
@@ -258,7 +258,7 @@ const Additem = () => {
                                     <input
                                         type="radio"
                                         name="variation"
-                                        className="appearance-none w-3 h-3 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-4 checked:border-[#994D1C]"
+                                        className="appearance-none w-4 h-4 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-5 checked:border-[#994D1C]"
                                     />
                                     HAS VARIATIONS?
                                 </label>
@@ -273,13 +273,13 @@ const Additem = () => {
                                     <span className="font-small">ORDER TYPE *</span> 
                                     <div className="flex gap-4 mt-1">
                                         <label className="flex items-center gap-1">
-                                            <input type="radio" name="orderType" className="appearance-none w-3 h-3 border-2 border-[#CACACA] rounded-full mr-[4px] checked:bg-white  checked:border-4 checked:border-[#994D1C]" /> Delivery
+                                            <input type="radio" name="orderType" className="appearance-none w-4 h-4 border-2 border-[#CACACA] rounded-full mr-[4px] checked:bg-white  checked:border-5 checked:border-[#994D1C]" /> Delivery
                                         </label>
                                         <label className="flex items-center gap-1">
-                                            <input type="radio" name="orderType" className="appearance-none w-3 h-3 border-2 border-[#CACACA] rounded-full mr-[4px] checked:bg-white  checked:border-4 checked:border-[#994D1C]" /> Pick Up
+                                            <input type="radio" name="orderType" className="appearance-none w-4 h-4 border-2 border-[#CACACA] rounded-full mr-[4px] checked:bg-white  checked:border-5 checked:border-[#994D1C]" /> Pick Up
                                         </label>
                                         <label className="flex items-center gap-1">
-                                            <input type="radio" name="orderType" className="appearance-none w-3 h-3 border-2 border-[#CACACA] rounded-full mr-[4px] checked:bg-white  checked:border-4 checked:border-[#994D1C]" /> Dine In
+                                            <input type="radio" name="orderType" className="appearance-none w-4 h-4 border-2 border-[#CACACA] rounded-full mr-[4px] checked:bg-white  checked:border-5 checked:border-[#994D1C]" /> Dine In
                                         </label>
                                     </div>
                                 </div>
@@ -291,7 +291,7 @@ const Additem = () => {
                                             <input
                                                 type="radio"
                                                 name="ignoreTax"
-                                                className="appearance-none w-3 h-3 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-4 checked:border-[#994D1C]"
+                                                className="appearance-none w-4 h-4 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-5 checked:border-[#994D1C]"
                                             />{" "}
                                             Yes
                                         </label>
@@ -302,7 +302,7 @@ const Additem = () => {
                                             <input
                                                 type="radio"
                                                 name="ignoreDiscount"
-                                                className="appearance-none w-3 h-3 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-4 checked:border-[#994D1C]"
+                                                className="appearance-none w-4 h-4 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-5 checked:border-[#994D1C]"
                                             />{" "}
                                             Yes
                                         </label>
@@ -317,7 +317,7 @@ const Additem = () => {
                                             <input
                                                 type="radio"
                                                 name="choice"
-                                                className="appearance-none w-3 h-3 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-4 checked:border-[#994D1C]"
+                                                className="appearance-none w-4 h-4 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-4 checked:border-[#994D1C]"
                                             />{" "}
                                             Veg
                                         </label>
@@ -325,7 +325,7 @@ const Additem = () => {
                                             <input
                                                 type="radio"
                                                 name="choice"
-                                                className="appearance-none w-3 h-3 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-4 checked:border-[#994D1C]"
+                                                className="appearance-none w-4 h-4 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-4 checked:border-[#994D1C]"
                                             />{" "}
                                             Non-Veg
                                         </label>
@@ -333,7 +333,7 @@ const Additem = () => {
                                             <input
                                                 type="radio"
                                                 name="choice"
-                                                className="appearance-none w-3 h-3 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-4 checked:border-[#994D1C]"
+                                                className="appearance-none w-4 h-4 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-4 checked:border-[#994D1C]"
                                             />{" "}
                                             Egg
                                         </label>
@@ -345,11 +345,11 @@ const Additem = () => {
 
 
                                     <div className="grid">
-                                        <label className="flex items-center gap-2">
+                                        <label className="flex items-center gap-2 pb-2">
                                             <input
                                                 type="radio"
                                                 name="addon"
-                                                className="appearance-none w-3 h-3 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-4 checked:border-[#994D1C]"
+                                                className="appearance-none w-4 h-4 border-2 border-[#CACACA] rounded-full checked:bg-white checked:border-5 checked:border-[#994D1C] "
                                             />
                                             HAS ADD ON?
                                         </label>
@@ -367,11 +367,12 @@ const Additem = () => {
                 </div>
 
 
-                <div className="flex justify-center md:justify-end py-6 px-9 gap-4">
-                    <button className="border border-[#A85916] text-[#A85916] px-5  rounded-md cursor-pointer whitespace-nowrap">
+                <div className="flex justify-center md:justify-end pb-4 px-9 gap-4">
+                    <button className="bg-[#A85916] text-white px-5 py-2 rounded-md cursor-pointer whitespace-nowrap text-[13px]">
                         Save & Exit
                     </button>
-                    <button className="bg-[#A85916] text-white px-5 py-2 rounded-md cursor-pointer whitespace-nowrap">
+                    <button className="border border-[#A85916] text-[#A85916] px-5 py-2 rounded-md cursor-pointer whitespace-nowrap
+                    font-medium text-[13px] ">
                         Save & Add Menu Items
                     </button>
                 </div>
