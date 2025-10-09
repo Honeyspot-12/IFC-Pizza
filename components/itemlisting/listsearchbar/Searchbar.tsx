@@ -1,6 +1,8 @@
 "use client"
 
 import React from 'react'
+import { TiArrowSortedDown } from "react-icons/ti";
+
 
 interface SearchbarProps {
     searchTerm: string;
@@ -42,16 +44,19 @@ const Searchbar: React.FC<SearchbarProps> = ({ searchTerm, onSearchChange,shortc
 
                 <div className='flex items-center gap-2 flex-grow '>
                     <span className='text-[#363636] text-sm font-medium whitespace-nowrap'>Sort By:</span>
+                    <div className='relative w-full '>
                     <select 
                         name="" 
                         id="" 
-                        className='border-1 border-[#A5A5A5] rounded p-1 text-black w-[75%] cursor-pointer text-sm  '
+                        className='border-1 border-[#A5A5A5] rounded p-1.5 text-black w-[100%] cursor-pointer text-sm  appearance-none'
                         value={sortBy}
                         onChange={(e) => onSortchange(e.target.value)}>
                         <option value="name" className='text-sm'>Name</option>
                         <option value="code" className='text-sm'>Short Code</option>
-
+                        
                     </select>
+                    <TiArrowSortedDown className='absolute top-1/2 right-2 -translate-1/2 text-[#A5A5A5] pointer-events-none'/>
+                    </div>
                 </div>
                 </div>
 

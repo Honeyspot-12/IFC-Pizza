@@ -15,7 +15,7 @@ interface Category {
 
 const Payment = () => {
     const [active, setActive] = useState<string>("Card")
-
+    
     const categories: Category[] = [
         { name: "Card",icon:"/card.svg" },
         { name: "Other",icon:"/other.svg" },
@@ -23,6 +23,7 @@ const Payment = () => {
     ]
 
     const { total } = useCart(); 
+
 
     return (
         <div className='bg-white pb-6'>

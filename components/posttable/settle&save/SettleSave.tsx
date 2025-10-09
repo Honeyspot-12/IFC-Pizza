@@ -16,18 +16,9 @@ const SettleSave = () => {
           <div className='flex flex-wrap  gap-2 items-center justify-between'>
             {["cash", "card", "Due", "Other", "Part"].map((type) => (
               <div key={type} className='flex items-center gap-2 '>
-                <div className=' '>
+                <div className=' flex items-center border-1 border-black rounded-full  px-1 py-1 cursor-pointer'>
                   <input type="radio" name="paymentType" id={type} className={`
-      cursor-pointer appearance-none 
-      w-5 h-5 border border-black rounded-full relative 
-      checked:before:content-[''] 
-      checked:before:block 
-      checked:before:w-3 
-      checked:before:h-3 
-      checked:before:rounded-full 
-      checked:before:bg-black 
-      checked:before: 
-      checked:before:
+      appearance-none  p-1.5 rounded-full checked:bg-black cursor-pointer
     `} />
                 </div>
                 <label htmlFor={type} className='text-[#868686]'>{type}</label>

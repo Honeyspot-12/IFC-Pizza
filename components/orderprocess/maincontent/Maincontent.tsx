@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import { items as allitems, Item } from "@/components/orderprocess/itemlistsdata/itemdata";
 import { useCart } from "@/context/CartContext";
 import Variation_popup from "@/components/orderprocess/variationpopup/Variation_popup";
-// Assuming other imports are correct...
 
-// ... (Your categories object remains the same)
 
 const categories: Record<string, string[]> = {
  beverages: ["Coke", "Pepsi", "Sprite", "Cold Coffee"],
@@ -48,13 +46,36 @@ const categories: Record<string, string[]> = {
  "single-pizza-magic-mania":["Single Pizza Magic Mania"]
 };
 
+// interface product{
+//     id:string;
+//     title:string;
+//     category:string;
+// }
+
 const Maincontent: React.FC = () => {
     const params = useParams();
     const category = params.category as string;
     const items = categories[category] || [];
 
     const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+    // const [products,setProducts]=useState<product[]>([])
     const { searchterm } = useCart();
+
+
+//    useEffect(()=>{
+//     async function demo(){
+//         try{
+//             const fetchdata=await fetch("https://fakestoreapi.com/products")
+//             const data = await fetchdata.json()
+//             setProducts(data)
+//             console.log("products",data)
+//         }catch(error){
+//             console.log("Fetching error",error)
+//         }
+//     }
+//     demo()
+//    },[])
+
 
     const filteredItem = useMemo(() => {
         if (!searchterm.trim()) {
@@ -88,7 +109,7 @@ const Maincontent: React.FC = () => {
                                         setSelectedItem(found);
                                     }
                                 }}
-                                className="absolute inset-0 border-1 border-[#8B4513] bg-white rounded-xl rounded-tr-[50px] flex items-center justify-center text-center  font-medium text-black text-md p-2 cursor-pointer"
+                                className="absolute inset-0 border-1 border-[#8B4513] bg-white rounded-xl rounded-tr-[50px] flex items-center justify-center text-center  font-medium text-black text-sm p-2 cursor-pointer"
                             >
                                 {itemName}
                             </button>

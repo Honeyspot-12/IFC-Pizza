@@ -13,7 +13,7 @@ const page = () => {
     <CartProvider>
     <div className='bg-white w-full'>
         <Topbar/>
-        <Listheader/>
+        <Listheader />
         {/* <Searchbar /> */}
       <Itemlisting/>
     </div>

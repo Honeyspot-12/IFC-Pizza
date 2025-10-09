@@ -20,11 +20,11 @@ const Itemlisting = () => {
 
   const filteredItems = remove.filter(
     (item) =>
-      item.name.toLowerCase().includes(searchTerm.toLowerCase()) && item.shortCode.toLowerCase().includes(shortcode.toLowerCase())
+      item.name.toLowerCase().includes(searchTerm.trim().toLowerCase()) && item.shortCode.toLowerCase().includes(shortcode.trim().toLowerCase())
   ).sort((a, b) => {
     if (sortBy === "name"){
       return a.name.localeCompare(b.name)
-    } else {
+    } else {  
       return a.shortCode.localeCompare(b.shortCode)
     }
     return 0;

@@ -29,7 +29,8 @@ const Discount = () => {
                         <div className="relative mx-3">
                             <select name="All" id="" className='w-full border-1 p-1 rounded border-[#A5A5A5] text-[#808080] text-sm appearance-none  pr-8'>
                                 <option value="all">All</option>
-                                <option value="discount">Discount</option>
+                                <option value="discount">PIZZA</option>
+                                <option value="discount">BEVERAGES</option>
 
                             </select>
                             <FaCaretDown className="absolute right-2 top-1/2 -translate-y-1/2 text-[#808080] pointer-events-none" />

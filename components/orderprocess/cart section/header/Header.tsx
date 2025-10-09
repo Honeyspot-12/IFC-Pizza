@@ -7,8 +7,12 @@ import { LuNotebookPen } from "react-icons/lu";
 import { useRouter, useSearchParams } from 'next/navigation';
 import Comments from '../../comments/Comments';
 
-const Header = () => {
-    const [showform, setShowform] = useState<boolean>(false);
+interface HeaderProps {
+    showform: boolean;
+    setShowform: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Header: React.FC<HeaderProps> = ({ showform, setShowform }) => {
     const [showcomments, setShowcomments] = useState<boolean>(false);
     const searchParams = useSearchParams();
     const tablenumber = searchParams.get("table");

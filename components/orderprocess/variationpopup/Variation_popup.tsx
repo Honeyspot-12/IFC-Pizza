@@ -10,29 +10,22 @@ interface VariationPopupProps {
     onClose: () => void;
 }
 
-const Variation_popup: React.FC<VariationPopupProps> = ({ item, onClose }) => {
 
+const Variation_popup: React.FC<VariationPopupProps> = ({ item, onClose }) => {
     const [selectedSize, setSelectedSize] = useState<number | null>(null);
     const [selectedToppings, setSelectedToppings] = useState<string[]>([]);
     const { addtocart } = useCart();
-
-
+    
     //toggle topping
-    // const handleToppingChange = (toppingName: string) => {
-    //     setSelectedToppings(prev =>
-    //         prev.includes(toppingName)
-    //             ? prev.filter(t => t !== toppingName)
-    //             : [...prev, toppingName]
-    //     );
-    // };
-
-    const handleToppingChange=(toppingName:string)=>{
-        setSelectedToppings(prev=>
+    const handleToppingChange = (toppingName: string) => {
+        setSelectedToppings(prev =>
             prev.includes(toppingName)
-            ? prev.filter(t=>t!==toppingName)
-            :[...prev,toppingName]
-        )
-    }
+                ? prev.filter(t => t !== toppingName)
+                : [...prev, toppingName]
+        );
+    };
+
+
 
     // const getToppingPrice = (topping: Toppings, sizeIndex: number | null): number => {
     //     if (sizeIndex === null) {
@@ -52,7 +45,8 @@ const Variation_popup: React.FC<VariationPopupProps> = ({ item, onClose }) => {
 
 
     // 1. Get the selected size variation price, default to 0 if nothing is selected
-    const basePrice = selectedSize !== null ? item.variations[selectedSize].price : 0;
+    // const basePrice = selectedSize !== null ? item.variations[selectedSize].price : 0;
+    const basePrice=selectedSize!==null ? item.variations[selectedSize].price : 0;
     
 
     // 2. Find and add up prices of all selected toppings based on size
@@ -60,6 +54,7 @@ const Variation_popup: React.FC<VariationPopupProps> = ({ item, onClose }) => {
         .filter(topping => selectedToppings.includes(topping.name))
         // .reduce((sum, topping) => sum + getToppingPrice(topping, selectedSize), 0);
         .reduce((sum,topping)=>sum+topping.price,0)
+
 
     // 3. Add base price and toppings price to get total price
     const totalPrice = basePrice + toppingsPrice;
@@ -85,8 +80,6 @@ const Variation_popup: React.FC<VariationPopupProps> = ({ item, onClose }) => {
         });
 
         onClose(); // Close popup after adding to cart
-
-
     }
 
     return (
@@ -120,33 +113,36 @@ const Variation_popup: React.FC<VariationPopupProps> = ({ item, onClose }) => {
                     </div>
                 </div>
 
-                <h3 className="text-sm px-5 mt-1 mb-2 ">Choose Your Toppings</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-5 border-b  pb-5 border-[#A5A5A5]">
-                    {item.toppings.map((topping, index) => (
-                        <div key={index} className="  ">
-                            <div className="border-1 border-[#994D1C] h-full  rounded text-xs font-medium p-3  flex gap-2  items-center justify-between">
-                                <div className="grid ">
-                                    <span>{topping.name}</span>
-                                    {/* <span>₹{getToppingPrice(topping, selectedSize)}</span> */}
-                                    <span>₹{topping.price}</span>
-                                </div>
-                                <div>
-                                    <input
-                                        type="checkbox"
-                                        className="w-4 h-4 cursor-pointer appearance-none border border-[#994D1C] rounded-sm 
-             checked:bg-[#994D1C] checked:border-[#994D1C] 
-             relative
-             before:content-['✓'] before:absolute before:text-white before:text-[12px] before:font-bold before:opacity-0 checked:before:opacity-100 items-center flex justify-center"
-                                        checked={selectedToppings.includes(topping.name)}
-                                        onChange={() => handleToppingChange(topping.name)}
-                                    />
-                                </div>
-                            </div>
+                {item.toppings && item.toppings.length > 0 && (
+                    <>
+                        <h3 className="text-sm px-5 mt-1 mb-2 ">Choose Your Toppings</h3>
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 px-5 border-b  pb-5 border-[#A5A5A5]">
+                            {item.toppings.map((topping, index) => (
+                                <div key={index} className="  ">
+                                    <div className="border-1 border-[#994D1C] h-full  rounded text-xs font-medium p-3  flex gap-2  items-center justify-between">
+                                        <div className="grid ">
+                                            <span>{topping.name}</span>
+                                            {/* <span>₹{getToppingPrice(topping, selectedSize)}</span> */}
+                                            <span>₹{topping.price}</span>
+                                        </div>
+                                        <div>
+                                            <input
+                                                type="checkbox"
+                                                className="w-4 h-4 cursor-pointer appearance-none border border-[#994D1C] rounded-sm 
+                     checked:bg-[#994D1C] checked:border-[#994D1C] 
+                     relative
+                     before:content-['✓'] before:absolute before:text-white before:text-[12px] before:font-bold before:opacity-0 checked:before:opacity-100 items-center flex justify-center"
+                                                // checked={selectedToppings.includes(topping.name)}
+                                                onChange={() => handleToppingChange(topping.name)}
+                                            />
+                                        </div>
+                                    </div>
 
-
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
+                    </>
+                )}
 
                 <div className="flex gap-3 items-center justify-end px-3">
                     <span className="text-sm">₹{totalPrice}</span>
